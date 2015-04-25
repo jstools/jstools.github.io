@@ -1939,6 +1939,15 @@ a:hover {
 a:active {
   color: #214cce;
 }
+a.regular {
+  color: #214cce;
+}
+a.regular:hover {
+  text-decoration: underline;
+}
+a.regular:active {
+  color: #1a3ca2;
+}
 .btn {
   display: inline-block;
   height: 2.4rem;
@@ -1973,6 +1982,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 html {
   font-size: 16px;
@@ -1980,11 +1990,27 @@ html {
 }
 .container {
   width: 80%;
+  max-height: 1200px;
   margin: 0 auto;
+}
+.height-wrapper {
+  min-height: 100%;
+  padding-bottom: 2rem;
+}
+#libs-nav {
+  float: left;
+  position: sticky;
+  top: 1rem;
+  width: 13rem;
+}
+article.article {
+  margin-left: 13rem;
+  padding: 0 1rem;
 }
 #header {
   padding: 0.5rem 0;
   background: #eee;
+  border-bottom: 1px solid #ddd;
 }
 #header a {
   text-decoration: none;
@@ -2016,12 +2042,6 @@ html {
   float: right;
   line-height: 5rem;
 }
-#libs-nav {
-  position: sticky;
-  top: 1rem;
-  margin: 1rem 0 0 0;
-  width: 13rem;
-}
 #libs-nav ul,
 #libs-nav li {
   list-style-type: none;
@@ -2046,4 +2066,20 @@ html {
 }
 #libs-nav ul ul li {
   padding-left: 1rem;
+}
+#main {
+  padding: 1rem 0;
+}
+#footer {
+  background: #eee;
+  margin-top: -2rem;
+  height: 2rem;
+  border-top: 1px solid #ddd;
+  font-size: 85%;
+}
+#footer .text-wrapper {
+  line-height: 2em;
+}
+#footer .author .label {
+  color: #777;
 }

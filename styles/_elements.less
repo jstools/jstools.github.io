@@ -12,6 +12,17 @@ a {
 	&:active {
 		color: darken(@brand-primary, 10%);
 	}
+
+	&.regular {
+		color: darken(@brand-primary, 10%);
+
+		&:hover {
+			text-decoration: underline;
+		}
+		&:active {
+			color: darken(@brand-primary, 20%);
+		}
+	}
 }
 
 .btn {
