@@ -1,6 +1,19 @@
 
 @btn-height: 2.4rem;
 
+a {
+	text-decoration: none;
+
+	color: black;
+
+	&:hover {
+		color: @brand-primary;
+	}
+	&:active {
+		color: darken(@brand-primary, 10%);
+	}
+}
+
 .btn {
 	display: inline-block;
 	height: @btn-height;

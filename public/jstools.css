@@ -1929,6 +1929,16 @@ select {
 .autoscroll {
   overflow: autoscroll;
 }
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  color: royalblue;
+}
+a:active {
+  color: #214cce;
+}
 .btn {
   display: inline-block;
   height: 2.4rem;
@@ -2009,8 +2019,8 @@ html {
 #libs-nav {
   position: sticky;
   top: 1rem;
-  width: 13rem;
   margin: 1rem 0 0 0;
+  width: 13rem;
 }
 #libs-nav ul,
 #libs-nav li {
@@ -2022,25 +2032,18 @@ html {
   display: block;
   padding: 0.5rem 1rem;
   text-decoration: none;
-  color: black;
 }
-#libs-nav a:hover {
-  background-color: #eee;
-}
-#libs-nav a:hover {
-  background-color: #ddd;
-}
-#libs-nav > li > a {
+#libs-nav > ul > li > a {
   font-weight: bold;
   background-color: #444;
   color: white;
 }
-#libs-nav > li > a:hover {
+#libs-nav > ul > li > a:hover {
   background-color: #333;
 }
-#libs-nav > li > a:active {
+#libs-nav > ul > li > a:active {
   background-color: #222;
 }
-#libs-nav ul li {
+#libs-nav ul ul li {
   padding-left: 1rem;
 }
