@@ -1,0 +1,42 @@
+{
+  "name": "jstools-site",
+  "version": "0.1.0",
+  "description": "jsTools public site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jstools/jstools.github.io.git"
+  },
+  "keywords": [
+    "js",
+    "tools",
+    "jstools",
+    "jqlite",
+    "http",
+    "ajax",
+    "cookies"
+  ],
+  "author": "Jesús Germade <jesus@germade.es>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jstools/jstools.github.io/issues"
+  },
+  "homepage": "https://github.com/jstools/jstools.github.io",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-less": "^1.0.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-fileserver": "^0.1.30",
+    "grunt-notify": "^0.4.1",
+    "load-grunt-tasks": "^3.1.0",
+    "time-grunt": "^1.1.1"
+  },
+  "dependencies": {
+    "jengine": "^0.1.19"
+  }
+}

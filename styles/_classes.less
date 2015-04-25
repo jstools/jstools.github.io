@@ -1,0 +1,115 @@
+
+.cursor-pointer { cursor: pointer; }
+
+// Text Classes
+
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+.text-bold { font-weight: bold; }
+.text-italic { font-style: italic; }
+
+.text-uppercase { text-transform: uppercase; }
+.text-lowercase { text-transform: lowercase; }
+.text-capitalize { text-transform: capitalize; }
+
+.text-title-case:first-letter { text-transform: uppercase; }
+
+.text-rtl { direction: rtl; }
+.text-ltr { direction: ltr; }
+
+.text-unselectable {
+  .user-select(none);
+}
+
+// .text-unselectable {
+//   @include user-select(none);
+// }
+
+.text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.no-wrap {
+  white-space: nowrap !important;
+}
+
+.no-word-break {
+  word-break: normal !important;
+}
+
+// Positioning
+
+.fixed-top {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+}
+
+.fit-absolute {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+}
+
+.fit-relative {
+    position: relative;
+    display: block;
+    height: 100%;
+}
+
+// Aligment
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.clear-both {
+  clear: both;
+}
+
+.valign-top {
+  vertical-align: middle;
+}
+.valign-middle {
+  vertical-align: middle;
+}
+.valign-bottom {
+  vertical-align: middle;
+}
+
+.clearfix:after { content: ''; display: block; clear: both; }
+
+// Tables
+
+.table-fixed {
+  table-layout: fixed;
+}
+
+.div-center {
+  margin: auto;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.display-block {
+  display: block;
+}
+
+.no-padding { padding: 0 !important; }
+.no-margin { margin: 0 !important; }
+
+.no-vpadding { padding-top: 0 !important; padding-bottom: 0 !important; }
+.no-hpadding { padding-left: 0 !important; padding-right: 0 !important; }
+
+.autoscroll {
+  overflow: autoscroll;
+}

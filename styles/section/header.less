@@ -1,0 +1,37 @@
+
+@logo-size: 5rem;
+
+#header {
+	padding: 0.5rem 0;
+	background: #eee;
+
+	a {
+		text-decoration: none;
+		color: black;
+
+		&:hover .title {
+			text-shadow: 0 0 0.1rem rgba(0,0,0,0.5);
+		}
+	}
+
+	img.logo {
+		width: @logo-size;
+		height: @logo-size;
+		vertical-align: middle;
+		float: left;
+	}
+
+	.title-wrapper {
+		margin-left: @logo-size;
+		padding: 0 1rem;
+	}
+	.title {
+		font-size: @logo-size/2.6;
+		line-height: @logo-size/2;
+	}
+	.subtitle {
+		font-size: @logo-size/4;
+		line-height: @logo-size/2;
+		color: #444;
+	}
+}
