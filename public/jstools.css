@@ -295,13 +295,19 @@ select {
 }
 .btn {
   display: inline-block;
-  height: 3rem;
-  line-height: 3rem;
+  height: 2.4rem;
+  line-height: 2.4rem;
   border: 1px solid transparent;
   background: transparent;
   padding: 0 0.5rem;
   cursor: pointer;
   text-decoration: none;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
 }
 .btn.btn-primary {
   background-color: royalblue;
