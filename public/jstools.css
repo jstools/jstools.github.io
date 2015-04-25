@@ -1,0 +1,352 @@
+@charset "UTF-8";
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+/**
+ * html5doctor.com Reset Stylesheet v1.6.1 (http://html5doctor.com/html-5-reset-stylesheet/)
+ * Richard Clark (http://richclarkdesign.com)
+ * http://cssreset.com
+ */
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+body {
+  line-height: 1;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+nav ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+/* change colours to suit your needs */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+/* change colours to suit your needs */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+del {
+  text-decoration: line-through;
+}
+abbr[title],
+dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* change border colour to suit your needs */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+input,
+select {
+  vertical-align: middle;
+}
+@font-face {
+  font-family: 'DejaVuSans';
+  src: url('/public/assets/fonts/DejaVuSans-webfont.eot');
+  src: url('/public/assets/fonts/DejaVuSans-webfont.eot?#iefix') format('embedded-opentype'), url('/public/assets/fonts/DejaVuSans-webfont.woff') format('woff'), url('/public/assets/fonts/DejaVuSans-webfont.ttf') format('truetype'), url('/public/assets/fonts/DejaVuSans-webfont.svg#webfontDSbtRiqx') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-bold {
+  font-weight: bold;
+}
+.text-italic {
+  font-style: italic;
+}
+.text-uppercase {
+  text-transform: uppercase;
+}
+.text-lowercase {
+  text-transform: lowercase;
+}
+.text-capitalize {
+  text-transform: capitalize;
+}
+.text-title-case:first-letter {
+  text-transform: uppercase;
+}
+.text-rtl {
+  direction: rtl;
+}
+.text-ltr {
+  direction: ltr;
+}
+.text-unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  box-user-select: none;
+}
+.text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.no-wrap {
+  white-space: nowrap !important;
+}
+.no-word-break {
+  word-break: normal !important;
+}
+.fixed-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.fit-absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.fit-relative {
+  position: relative;
+  display: block;
+  height: 100%;
+}
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+.clear-both {
+  clear: both;
+}
+.valign-top {
+  vertical-align: middle;
+}
+.valign-middle {
+  vertical-align: middle;
+}
+.valign-bottom {
+  vertical-align: middle;
+}
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.table-fixed {
+  table-layout: fixed;
+}
+.div-center {
+  margin: auto;
+}
+.inline-block {
+  display: inline-block;
+}
+.display-block {
+  display: block;
+}
+.no-padding {
+  padding: 0 !important;
+}
+.no-margin {
+  margin: 0 !important;
+}
+.no-vpadding {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+.no-hpadding {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.autoscroll {
+  overflow: autoscroll;
+}
+.btn {
+  display: inline-block;
+  height: 3rem;
+  line-height: 3rem;
+  border: 1px solid transparent;
+  background: transparent;
+  padding: 0 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn.btn-primary {
+  background-color: royalblue;
+  color: white;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 16px;
+  font-family: DejaVuSans;
+}
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+#header {
+  padding: 0.5rem 0;
+  background: #eee;
+}
+#header a {
+  text-decoration: none;
+  color: black;
+}
+#header a:hover .title {
+  text-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.5);
+}
+#header img.logo {
+  width: 5rem;
+  height: 5rem;
+  vertical-align: middle;
+  float: left;
+}
+#header .title-wrapper {
+  margin-left: 5rem;
+  padding: 0 1rem;
+}
+#header .title {
+  font-size: 1.92307692rem;
+  line-height: 2.5rem;
+}
+#header .subtitle {
+  font-size: 1.25rem;
+  line-height: 2.5rem;
+  color: #444;
+}
