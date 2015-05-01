@@ -51,7 +51,7 @@ module.exports = function (options) {
   bowerDependencies.each(['README.md', 'package.json'], function (dependence, readme, pkg) {
     grunt.file.write(
       joinPath( 'page/jengine', dependence, 'index.html' ),
-      layout(env.$$new({ dependence: dependence, article: marked(readme), githubUrl: pkg.repository.url }))
+      layout(env.$$new({ dependence: dependence, article: marked(readme), githubUrl: pkg.homepage }))
     );
   });
   // console.log( template('layout')(env), bower );
