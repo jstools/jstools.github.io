@@ -1,0 +1,23 @@
+{
+    "name": "jstools-router",
+    "main": "router.js",
+    "version": "0.1.2",
+    "homepage": "https://github.com/jstools/router",
+    "authors": [
+        "Jesús Germade <jesus@germade.es>"
+    ],
+    "description": "simple javascript router handler",
+    "keywords": [
+        "javascript",
+        "jstools",
+        "router"
+    ],
+    "license": "ISC",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ]
+}

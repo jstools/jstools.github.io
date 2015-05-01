@@ -4,7 +4,9 @@
   "description": "jsTools public site",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prestart": "npm install && bower install",
+    "start": "grunt dev"
   },
   "repository": {
     "type": "git",
@@ -24,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/jstools/jstools.github.io/issues"
   },
-  "homepage": "https://github.com/jstools/jstools.github.io",
+  "homepage": "https://jstools.github.io",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-clean": "^0.6.0",
@@ -33,10 +35,14 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-fileserver": "^0.1.30",
     "grunt-notify": "^0.4.1",
+    "jstools-compile": "^0.1.5",
+    "jstools-scope": "^0.0.9",
     "load-grunt-tasks": "^3.1.0",
+    "marked": "^0.3.3",
+    "package-manager": "0.0.11",
     "time-grunt": "^1.1.1"
   },
   "dependencies": {
-    "jengine": "^0.1.19"
+    "jengine": "^0.1.22"
   }
 }

@@ -71,7 +71,7 @@
 										<a href="/page/jengine/jstools-events/">events</a>
 									</li>
                   
-									<li class="">
+									<li class="text-bold">
 										<a href="/page/jengine/jstools-promise/">promise</a>
 									</li>
                   
@@ -89,11 +89,58 @@
 					</nav>
 
 					<article class="article">
-						<a class="pull-right btn btn-link" href="" target="_blank">
+						<a class="pull-right btn btn-link" href="https://github.com/jstools/promise.git" target="_blank">
 							<span class="icon icon-github"></span>
 							<span>Github</span>
 						</a>
-						<div class="readme"></div>
+						<div class="readme"><h1 id="jstools-promise">jsTools: Promise</h1>
+<p><a href="http://badge.fury.io/bo/jstools-promise"><img src="https://badge.fury.io/bo/jstools-promise.svg" alt="Bower version"></a>
+<a href="http://badge.fury.io/js/jstools-promise"><img src="https://badge.fury.io/js/jstools-promise.svg" alt="npm version"></a>
+<a href="https://travis-ci.org/jstools/promise"><img src="https://travis-ci.org/jstools/promise.svg?branch=master" alt="Build Status"></a></p>
+<pre><code class="lang-.sh">npm install jstools-promise --save
+</code></pre>
+<p>or</p>
+<pre><code class="lang-.sh">bower install jstools-promise --save
+</code></pre>
+<pre><code class="lang-.js">new qPromise(function (resolve, reject) {
+        resolve(&#39;gogogo!&#39;);
+    })
+
+    .finally(function (result) {
+        console.log(&#39;checkpoint 4&#39;, result);
+    }, function (reason) {
+        console.log(&#39;checkpoint 4.1&#39;, reason);
+    })
+
+    .then(function (result) {
+        console.log(&#39;checkpoint 1&#39;, result);
+        throw &#39;whoops!&#39;;
+    })
+
+    .then(function (result) {
+        console.log(&#39;checkpoint 2&#39;, result);
+    },function (result) {
+        console.log(&#39;checkpoint 2.1&#39;, result);
+        return qPromise(function (resolve, reject) {
+            setTimeout(function () { resolve(&#39;all right!&#39;); }, 400);
+        });
+    })
+
+    .then(function (result) {
+        console.log(&#39;checkpoint 3&#39;, result);
+    }, function (reason) {
+        console.log(&#39;checkpoint 3.1&#39;, reason);
+    })
+;
+</code></pre>
+<p>output will be:</p>
+<pre><code class="lang-.sh">checkpoint 1 gogogo!
+checkpoint 2.1 whoops!
+# elapsed 400ms
+checkpoint 3 all right!
+checkpoint 4 all right!
+</code></pre>
+</div>
 					</article>
 
 				</div>

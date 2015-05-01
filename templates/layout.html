@@ -2,19 +2,19 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>jsTools</title>
-		<link rel="shortcut icon" type="image/x-icon" href="https://jstools.github.io/public/assets/images/jstools.png" />
+		<title>jsTools$if{section.subTitle} | ${section.subTitle}{/}</title>
+		<link rel="shortcut icon" type="image/x-icon" href="${host}/public/assets/images/jstools.png" />
 
-		<link href="https://jstools.github.io/public/jstools.css" rel="stylesheet">
+		<link href="${host}/public/jstools.css" rel="stylesheet">
 
-		<script src="https://jstools.github.io/public/jEngine.js"></script>
+		<script src="${host}/public/jEngine.js"></script>
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
 		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
 
-		<script src="https://jstools.github.io/public/assets/highlight-plugin.js"></script>
+		<script src="${host}/public/assets/highlight-plugin.js"></script>
 
 
-		
+		$if{debug}<script src="//localhost:54321/livereload.js"></script>{/}
 	</head>
 	<body>
 		<div class="height-wrapper">
@@ -50,50 +50,22 @@
 							<li>
 								<a href="/page/jengine" target="_blank">jEngine</a>
 								<ul>
-                  
-									<li class="">
-										<a href="/page/jengine/jstools-fn/">fn</a>
+                  $each{jstool in bower.dependencies}
+									<li class="$if{dependence === $key}text-bold{/}">
+										<a href="/page/jengine/${$key}/">${jstoolLabel($key)}</a>
 									</li>
-                  
-									<li class="">
-										<a href="/page/jengine/jstools-jqlite/">jqlite</a>
-									</li>
-                  
-									<li class="">
-										<a href="/page/jengine/jq-plugin/">jq-plugin</a>
-									</li>
-                  
-									<li class="">
-										<a href="/page/jengine/jstools-compile/">compile</a>
-									</li>
-                  
-									<li class="">
-										<a href="/page/jengine/jstools-events/">events</a>
-									</li>
-                  
-									<li class="">
-										<a href="/page/jengine/jstools-promise/">promise</a>
-									</li>
-                  
-									<li class="">
-										<a href="/page/jengine/jstools-cookie/">cookie</a>
-									</li>
-                  
-									<li class="">
-										<a href="/page/jengine/jstools-http/">http</a>
-									</li>
-                  
+                  {/}
 								</ul>
 							</li>
 						</ul>
 					</nav>
 
 					<article class="article">
-						<a class="pull-right btn btn-link" href="" target="_blank">
+						<a class="pull-right btn btn-link" href="${githubUrl}" target="_blank">
 							<span class="icon icon-github"></span>
 							<span>Github</span>
 						</a>
-						<div class="readme"></div>
+						<div class="readme">${article}</div>
 					</article>
 
 				</div>

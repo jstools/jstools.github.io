@@ -19,8 +19,8 @@ module.exports = function(grunt) {
 
     pkg: grunt.file.readJSON('package.json'),
 
-    clean: ["<%= dir.tmp %>", "<%= dir.public %>"],
-    
+    clean: ["<%= dir.tmp %>", "<%= dir.public %>", 'page'],
+
     copy: {
     	assets: {
     		expand: true,
@@ -56,6 +56,10 @@ module.exports = function(grunt) {
 		      spawn: false,
 		    }
 		  },
+			builder: {
+				files: ['_grunt/**', 'templates/**'],
+				tasks: ['build-pages:dev']
+			},
 		  options: {
 		  	livereload: 54321
 		  }
@@ -74,22 +78,29 @@ module.exports = function(grunt) {
 	        keepalive: false,
 	        onStart: function(){ console.log('server started'); },
 	        onStop: function(){ console.log('server stopped'); },
-	        openInBrowser: true,   // true (for default browser) or app name (eg: 'chrome', 'firefox') 
-	        addExtension: 'html'   // add extension to url not ended in '/' 
+	        openInBrowser: true,   // true (for default browser) or app name (eg: 'chrome', 'firefox')
+	        addExtension: 'html'   // add extension to url not ended in '/'
 	      }
 	    }
 	  }
 
   });
 
-	
+	grunt.registerTask('build-pages:dev', function () {
+		require('./_grunt/site-builder.js')({ debug: true });
+	});
+
+	grunt.registerTask('build-pages:dist', function () {
+		require('./_grunt/site-builder.js')();
+	});
+
 	grunt.registerTask('copy-jengine', function () {
 		grunt.file.copy('node_modules/jengine/jEngine.js', 'public/jEngine.js');
 	});
 
-  grunt.registerTask('dev', ['clean', 'copy:assets', 'copy-jengine', 'less', 'fileserver', 'watch']);
+  grunt.registerTask('dev', ['clean', 'copy:assets', 'copy-jengine', 'build-pages:dev', 'less', 'fileserver', 'watch']);
 
-  grunt.registerTask('build', ['clean', 'copy:assets', 'copy-jengine', 'less']);
+  grunt.registerTask('build', ['clean', 'copy:assets', 'copy-jengine', 'build-pages:dist', 'less']);
 
   // Default task(s).
   grunt.registerTask('default', ['build']);

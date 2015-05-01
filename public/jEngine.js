@@ -1,101 +1,4 @@
-/*
- * jengine - A Powerful javascript framework to build your website/application
 
- * The MIT License (MIT)
- * 
- * Copyright (c) 2014 Jesús Manuel Germade Castiñeiras <jesus@germade.es>
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- * 
- */
-
-
-
-/*  ----------------------------------------------------------------------------------------- */
-
-/*
- * jstool-core - JS global object (fn) to define modules
-
- * The MIT License (MIT)
- * 
- * Copyright (c) 2014 Jesús Manuel Germade Castiñeiras <jesus@germade.es>
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- * 
- */
-;(function () {
-	'use strict';
-
-	var _consoleLog = function (type, args) {
-	        window.console[type].apply( window.console, args );
-	    },
-	    noop = function () {},
-	    consoleLog = noop;
-
-	var log = function() {
-	        consoleLog('log', Array.prototype.slice.call(arguments));
-	    };
-
-	['info', 'warn', 'debug', 'error'].forEach(function (type) {
-	    log[type] = (window.console !== undefined) ? function () {
-	        consoleLog(type, Array.prototype.slice.call(arguments));
-	    } : noop;
-	});
-
-	log.enable = function (enableLog) {
-	    enableLog = (enableLog === undefined) ? true : enableLog;
-	    if( enableLog ) {
-	        consoleLog = (window.console !== undefined ) ? _consoleLog : noop;
-	    } else {
-	        consoleLog = noop;
-	    }
-	    log('log is enabled');
-	};
-
-	log.clear = function() {
-	    log.history = [];
-	    if (window.console) console.clear();
-	};
-
-	if( document.documentElement.getAttribute('data-log') === 'true' ) {
-		log.enable();
-	}
-
-	window.log = log;
-
-})();;
 /*	Copyright (c) 2014, Jesús Manuel Germade Castiñeiras <jesus@germade.es>
  * 
  *	Permission to use, copy, modify, and/or distribute this software for any purpose
@@ -115,60 +18,32 @@
 
 	var _global = (typeof window === 'undefined' ? module.exports : window);
 
-	var _ = {
-		isFunction: function (fn) {
-			return (fn instanceof Function);
-		},
-		isArray: function (list) {
-			return (list instanceof Array);
-		},
-		isString: function (str) {
-			return ( typeof str === 'string' );
-		},
-		isNumber: function (n) {
-			return (n instanceof Number);
-		},
-		isObject: function(myVar,type){ if( myVar instanceof Object ) return ( type === 'any' ) ? true : ( typeof myVar === (type || 'object') ); else return false; },
-		key: function(o,full_key,value){
-    		if(! o instanceof Object) return false;
-    		var key, keys = full_key.split('.'), in_keys = o || {};
-    		if(value !== undefined) {
-    			if(keys.length) {
-    				key = keys.shift();
-    				next_key = keys.shift();
-    				while( next_key ) {
-    					if( !o[key] ) o[key] = {};
-    					o = o[key];
-    					key = next_key;
-    					next_key = keys.shift();
-    				}
-    				o[key] = value;
-    			}
-    			return value;
-    		} else {
-    			for(var k=0, len = keys.length;k<len;k++) {
-    			    key = keys[k];
-    			    if( key in in_keys ) in_keys = in_keys[keys[k]] || {};
-    				else return false;
-    			}
-    			return in_keys;
-    		}
-    	},
-    	keys: Object.keys,
-    	globalize: function (varName, o) {
-    		if( o ) {
-    			_global[varName] = o;
-    		} else if(varName) {
-    			_global[varName] = definitions[varName];
-    		} else {
-    			for( varName in definitions ) {
-    				_global[varName] = definitions[varName];
-    			}
-    		}
-    	}
-	};
+	function _instanceof (prototype) {
+    	return function (o) {
+    		return o instanceof prototype;
+    	};
+    } 
 
-	var definitions = { '_': _ },
+    function isString (o) {
+    	return typeof o === 'string';
+    }
+    var isFunction = _instanceof(Function),
+    	isArray = _instanceof(Array),
+    	isObject = _instanceof(Object);
+
+	function globalize (varName, o) {
+		if( o ) {
+			_global[varName] = o;
+		} else if(varName) {
+			_global[varName] = definitions[varName];
+		} else {
+			for( varName in definitions ) {
+				_global[varName] = definitions[varName];
+			}
+		}
+	}
+
+	var definitions = {},
 		RE_FN_ARGS = /^function[^\(]\(([^\)]*)/,
 		noop = function () {},
 		fnListeners = {};
@@ -182,7 +57,7 @@
 	 * @returns {Object} the Core
 	 */
 	function fn (deps, func, context) {
-		if( _.isString(deps) ) {
+		if( isString(deps) ) {
 			if( func === undefined ) {
 				return definitions[deps];
 			} else {
@@ -201,7 +76,7 @@
 
 	function triggerFn (fnName) {
 		var definition = definitions[fnName];
-		if( _.isArray(fnListeners[fnName]) ) {
+		if( isArray(fnListeners[fnName]) ) {
 			for( var i = 0, len = fnListeners[fnName].length; i < len; i++ ) {
 				fnListeners[fnName][i](definition);
 			}
@@ -212,11 +87,11 @@
 
 	fn.run = function (dependencies, f, context) {
 		
-		if( _.isArray(dependencies) ) {
+		if( isArray(dependencies) ) {
 			if( f === undefined ) {
 				f = dependencies.pop();
 			}
-		} else if( _.isFunction(dependencies) ) {
+		} else if( isFunction(dependencies) ) {
 			context = f;
 			f = dependencies;
 			dependencies = f.toString().match(RE_FN_ARGS)[1].split(',') || [];
@@ -231,21 +106,21 @@
 
 	function addDefinition (fnName, definition) {
 		definitions[fnName] = definition;
-		log.debug('fn defined: ', fnName);
+		console.debug('fn defined: ', fnName);
 		triggerFn(fnName);
 		delete fn.waiting[fnName];
 	}
 
 	fn.define = function (fnName, dependencies, fnDef) {
-		if( _.isString(fnName) ) {
+		if( isString(fnName) ) {
 
 			var args = [];
 
-			if( _.isArray(dependencies) ) {
+			if( isArray(dependencies) ) {
 				if( fnDef === undefined ) {
 					fnDef = dependencies.pop();
 				}
-			} else if( _.isFunction(dependencies) ) {
+			} else if( isFunction(dependencies) ) {
 				fnDef = dependencies;
 				dependencies = [];
 				fnDef.toString().replace(RE_FN_ARGS, function(match, params) {
@@ -278,7 +153,9 @@
 	};
 
 	fn.require = function (dependencies, callback, context) {
-		if( !_.isFunction(callback) ) return false;
+		if( !isFunction(callback) ) {
+			return false;
+		}
 
 		var runCallback = function () {
 			for( var i = 0, len = dependencies.length, injections = []; i < len; i++ ) {
@@ -311,9 +188,11 @@
 			}
 		};
 
-		if( _.isString(dependencies) ) dependencies = [dependencies];
+		if( isString(dependencies) ) {
+			dependencies = [dependencies];
+		}
 
-		if( _.isArray(dependencies) ) {
+		if( isArray(dependencies) ) {
 
 			if( dependencies.length ) {
 
@@ -327,18 +206,23 @@
 					runCallback();
 				}
 
-			} else runCallback();
+			} else {
+				runCallback();
+			}
 		}
 
 		return fn;
 	};
 
-	fn.when = function (fnName, callback) {
-		if( _.isFunction(callback) ) {
-			if( definitions[fnName] ) callback.apply(context, definitions[fnName]);
-			else onceFn(fnName, function (definition) {
-				callback.apply(context, definition);
-			});
+	fn.when = function (fnName, callback, context) {
+		if( isFunction(callback) ) {
+			if( definitions[fnName] ) {
+				callback.apply(context, definitions[fnName]);
+			} else {
+				onceFn(fnName, function (definition) {
+					callback.apply(context, definition);
+				});
+			}
 		}
 
 		return fn;
@@ -350,17 +234,24 @@
 		return fn;
 	};
 
-	fn.globalize = _.globalize;
+	fn.globalize = globalize;
 
-	_.globalize('fn', fn);
+	globalize('fn', fn);
 
-	fn.load = window.addEventListener ? function (listener) {
-		window.addEventListener('load', listener, false);
-		return fn;
-	} : function (listener) {
-		window.attachEvent('onload', listener );
-		return fn;
-	};
+	if( !_global.define ) {
+		_global.define = fn.define;
+	}
+
+	if( typeof window !== 'undefined' ) {
+		fn.load = window.addEventListener ? function (listener) {
+			window.addEventListener('load', listener, false);
+			return fn;
+		} : function (listener) {
+			window.attachEvent('onload', listener );
+			return fn;
+		};
+	}
+
 
 	fn.ready = function (callback) {
 		if( callback instanceof Function ) {
@@ -389,7 +280,7 @@
 		if( Object.keys(missingDependencies).length ) {
 			console.group('missing dependencies');
 			for( key in missingDependencies ) {
-				log(key, missingDependencies[key]);
+				console.log(key, missingDependencies[key]);
 			}
 			console.groupEnd();
 		}
@@ -555,7 +446,6 @@
       case '<':
         auxDiv.innerHTML = selector;
         var jChildren = pushMatches( new ListDOM(), auxDiv.children );
-        jqlite.plugin.init(jChildren);
         return jChildren;
       default:
         return pushMatches( new ListDOM(), document.querySelectorAll(selector) );
@@ -1287,85 +1177,9 @@
             try{ runScripts('(function(){ \'use strict\';' + script.textContent + '})();'); }catch(err){ throw err.message; }
           }
         });
-        jqlite.plugin.init(this);
       }
       return this;
     };
-
-    jqlite.$doc = jqlite(document);
-
-    jqlite.plugin = function (selector, handler, collection) {
-      if( typeof selector === 'string' && handler instanceof Function ) {
-        jqlite.plugin.cache[selector] = handler;
-        jqlite.plugin.cache[selector]._collection = !!collection;
-      }
-
-      if( !jqlite.plugin.ready ) {
-        $.plugin.run(jqlite.$doc, selector);
-      } else if( jqlite.plugin.running ) {
-        jqlite.plugin.running = true;
-        jqlite.plugin.init(jqlite.$doc);
-      }
-    };
-    jqlite.plugin.running = false;
-    jqlite.plugin.cache = {};
-    jqlite.plugin.run = function (jBase, pluginSelector) {
-
-      var handler = jqlite.plugin.cache[pluginSelector],
-          elements = jBase.find(pluginSelector);
-
-      if( elements.length ) {
-        if( handler._collection ) {
-          handler( elements );
-        } else {
-          elements.each(handler);
-        }
-      }
-    };
-
-    jqlite.plugin.init = function (jBase) {
-      ready(function () {
-        for( var pluginSelector in jqlite.plugin.cache ) {
-          jqlite.plugin.run(jBase, pluginSelector);
-        }
-        jqlite.plugin.ready = true;
-      });
-    };
-
-    function jqWidget (widgetName, handler) {
-      if( typeof widgetName === 'string' && handler instanceof Function ) {
-
-        jqWidget.widgets[widgetName] = handler;
-
-        if( jqWidget.enabled ) {
-          console.log('running widget directly', widgetName);
-          $('[data-widget="' + widgetName + '"]').each(handler);
-        } else if( !jqWidget.loading ) {
-          jqWidget.loading = true;
-          jqWidget.init();
-        }
-      }
-    }
-
-    jqWidget.init = function () {
-      ready(function () {
-        jqlite.plugin('[data-widget]', function () {
-          var widgetName = this.getAttribute('data-widget');
-
-          console.log('running widget', widgetName);
-
-          if( jqWidget.widgets[widgetName] ) {
-            jqWidget.widgets[widgetName].call(this);
-          }
-        });
-        jqWidget.enabled = true;
-        jqWidget.loading = false;
-      });
-    };
-    jqWidget.widgets = {};
-
-    jqlite.widget = jqWidget;
-
 
   ListDOM.prototype.text = function (text) {
       var i, len;
@@ -1507,6 +1321,506 @@
 
   return jqlite;
 
+});
+
+
+/*  ----------------------------------------------------------------------------------------- */
+
+/*
+ * css.js
+ *
+ * The MIT License (MIT)
+ *
+ * Copyright (c) 2014 Jesús Manuel Germade Castiñeiras <jesus@germade.es>
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ *
+ */
+
+
+(function (root) {
+
+  if( !root.$ ) {
+    return;
+  }
+
+  var jq = root.$,
+      $doc = jq(document);
+
+  jq.plugin = function (selector, handler, collection) {
+    if( typeof selector === 'string' && handler instanceof Function ) {
+      jq.plugin.cache[selector] = handler;
+      jq.plugin.cache[selector]._collection = !!collection;
+    }
+
+    if( !jq.plugin.ready ) {
+      $.plugin.run($doc, selector);
+    } else if( jq.plugin.running ) {
+      jq.plugin.running = true;
+      jq.plugin.init($doc);
+    }
+  };
+  jq.plugin.running = false;
+  jq.plugin.cache = {};
+  jq.plugin.run = function (jBase, pluginSelector) {
+
+    var handler = jq.plugin.cache[pluginSelector],
+        elements = jBase.find(pluginSelector);
+
+    if( elements.length ) {
+      if( handler._collection ) {
+        handler( elements );
+      } else {
+        elements.each(handler);
+      }
+    }
+  };
+
+  jq.plugin.init = function (jBase) {
+    $(function () {
+      for( var pluginSelector in jq.plugin.cache ) {
+        jq.plugin.run(jBase, pluginSelector);
+      }
+      jq.plugin.ready = true;
+    });
+  };
+
+  function jqWidget (widgetName, handler) {
+    if( typeof widgetName === 'string' && handler instanceof Function ) {
+
+      jqWidget.widgets[widgetName] = handler;
+
+      if( jqWidget.enabled ) {
+        console.log('running widget directly', widgetName);
+        $('[data-widget="' + widgetName + '"]').each(handler);
+      } else if( !jqWidget.loading ) {
+        jqWidget.loading = true;
+        jqWidget.init();
+      }
+    }
+  }
+
+  jqWidget.init = function () {
+    $(function () {
+      jq.plugin('[data-widget]', function () {
+        var widgetName = this.getAttribute('data-widget');
+
+        console.log('running widget', widgetName);
+
+        if( jqWidget.widgets[widgetName] ) {
+          jqWidget.widgets[widgetName].call(this);
+        }
+      });
+      jqWidget.enabled = true;
+      jqWidget.loading = false;
+    });
+  };
+  jqWidget.widgets = {};
+
+  jq.widget = jqWidget;
+
+  var jqHtml = jq.fn.html;
+
+  jq.fn.html = function (html) {
+    jqHtml.apply(this, arguments);
+
+    if(html) {
+      jq.plugin.init(this);
+    }
+  };
+
+})(this);
+
+
+/*  ----------------------------------------------------------------------------------------- */
+
+/*
+ * compile.js
+ *
+ * The MIT License (MIT)
+ *
+ * Copyright (c) 2014 Jesús Manuel Germade Castiñeiras <jesus@germade.es>
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ *
+ */
+
+
+(function (root, factory) {
+    'use strict';
+
+    if ( typeof root === 'undefined' ) {
+        if ( typeof module !== 'undefined' ) {
+            module.exports = factory();
+        }
+    } else {
+    	if ( root.define !== undefined ) {
+            root.define('compile', factory );
+        } else if ( root.fn !== undefined ) {
+            root.fn.define('compile', factory );
+        } else if( !root.compile ) {
+            root.compile = factory();
+        }
+    }
+
+})(this, function () {
+    'use strict';
+
+    function noop () {}
+
+    function _instanceof (prototype) {
+    	return function (o) {
+    		return o instanceof prototype;
+    	};
+    }
+
+    function isString (o) {
+    	return typeof o === 'string';
+    }
+    var isFunction = _instanceof(Function),
+    	isArray = _instanceof(Array),
+    	isObject = _instanceof(Object);
+
+    // ----------------------------
+
+    function parseExpression (expression) {
+        /* jshint ignore:start */
+        return (new Function('model', 'try{ with(model) { return (' + expression + ') }; } catch(err) { return \'\'; }'));
+        /* jshint ignore:end */
+    }
+
+    function _each(o, handler) {
+
+      if( !isFunction(handler) ) {
+        throw 'handler should be a function';
+      }
+
+      if( isArray(o) ) {
+        o.forEach(handler);
+      } else if( isObject(o) ) {
+        for( var key in o ) {
+          handler.apply(null, [o[key], key]);
+        }
+      }
+    }
+
+    function _extend (dest, src) {
+      for( var key in src ) {
+        dest[key] = src[key];
+      }
+    }
+
+    function Scope (data) {
+        if( data instanceof Object ) {
+            _extend(this, data);
+        }
+    }
+
+    Scope.prototype.$new = function(data) {
+        var S = function (data) {
+            if( data instanceof Object ) {
+                _extend(this, data);
+            }
+        };
+        S.prototype = this;
+        return new S(data);
+    };
+
+    Scope.prototype.$extend = function(data) {
+        return _extend(this, data);
+    };
+
+    Scope.prototype.$eval = function ( expression ) {
+        return parseExpression(expression)(this);
+    };
+
+    // ----------------------------
+
+    var splitRex = /\$[\w\?]*{[^\}]+}|{[\$\/]}|{\:}/,
+        matchRex = /(\$([\w\?]*){([^\}]+)})|({[\$\/]})|({\:})/g;
+
+    function _compile(tmpl){
+
+        if( !isString(tmpl) ) {
+            throw 'template should be a string';
+        }
+
+        var texts = tmpl.split(splitRex),
+            list = [texts.shift()];
+
+        tmpl.replace(matchRex,function(match, match2, cmd, expression, closer, colon){
+            list.push( closer ?
+            			{ cmd: '', expression: '/' } :
+            			( colon ?
+            				{ cmd: '', expression: 'else' } :
+            				{ cmd: cmd, expression: expression }
+            			)
+            		);
+            list.push(texts.shift());
+        });
+
+        var compiled = raiseList(list, 'root');
+
+        return compiled;
+    }
+
+    function raiseList(tokens, cmd, expression) {
+        cmd = (cmd || '').trim();
+        expression = expression || '';
+
+        var options = { content: [] },
+            currentOption = 'content',
+            nextOption = function (optionName) {
+                options[optionName] = [];
+                currentOption = optionName;
+            };
+
+        var token = tokens.shift();
+
+        while( token !== undefined ){
+
+            if( typeof token === 'string' ) {
+            	options[currentOption].push(token);
+            } else if( isObject(token) ) {
+                if( token.cmd ) {
+
+                    if( _cmd[token.cmd] && _cmd[token.cmd].standalone ) {
+                      options[currentOption].push(new ModelScript(token.cmd,token.expression.replace(/\/$/,'')));
+                    } else {
+                      switch(token.cmd) {
+                          case 'case':
+                          case 'when':
+                              nextOption(token.expression);
+                              break;
+                          default: // cmd is like a helper
+                              if( token.expression.substr(-1) === '/' ) {
+                              	options[currentOption].push(new ModelScript(token.cmd, token.expression.replace(/\/$/,'') ));
+                              } else {
+                              	options[currentOption].push(raiseList(tokens, token.cmd, token.expression));
+                              }
+                              break;
+                      }
+                    }
+
+                } else switch( token.expression ) {
+                    case 'else':
+                    case 'otherwise': nextOption('otherwise'); break;
+                    case '/':
+                        return new ModelScript(cmd, expression, options); // base case
+                    default:
+                        options[currentOption].push( new ModelScript('var', token.expression ) );
+                        break;
+                }
+            }
+            token = tokens.shift();
+        }
+        return new ModelScript(cmd, expression, options);
+    }
+
+    function _evalContent(scope, content) {
+        var result = '';
+
+        if( isFunction(content) ) {
+          return content(scope);
+        } else if( isArray(content) ) {
+
+          // console.warn('_evalContent', scope, content);
+          content.forEach(function(token){
+              if( isString(token) ) {
+              	result += token;
+              } else if( token instanceof ModelScript ) {
+              	result += token.render(scope);
+              } else if( isArray(token) ) {
+              	result += _evalContent(scope, content);
+              }
+          });
+
+          return result;
+        } else {
+          return content;
+        }
+    }
+
+
+
+    var _cmd = {
+          root: function(scope){
+            return this.content(scope);
+          },
+          var: function(scope, expression){
+            return scope.$eval(expression);
+          },
+          if: function(scope, condition){
+            return scope.$eval(condition) ? this.content(scope) : this.otherwise(scope);
+          }
+        };
+    _cmd['?'] = _cmd.if;
+
+    function _optionEvaluator (content) {
+      return function (scope) {
+        return _evalContent(scope, content );
+      };
+    }
+
+    function ModelScript(cmd, expression, options){
+        this.cmd = cmd;
+        this.expression = expression;
+        this.options = { content: noop, otherwise: noop };
+
+        for( var key in options ) {
+          this.options[key] = _optionEvaluator(options[key]);
+        }
+    }
+
+    ModelScript.prototype.render = function (data) {
+
+        if( !isFunction(_cmd[this.cmd]) ) {
+          return '[command ' + this.cmd+' not found]';
+        }
+
+        var scope = ( data instanceof Scope ) ? data : new Scope(data),
+            content = _cmd[this.cmd].apply(
+                          this.options,
+                          [scope, this.expression]
+                      );
+
+        return '' + _evalContent(scope, content);
+    };
+
+    function compile (template) {
+        var compiled = _compile(template),
+            renderer = function (scope) {
+                return compiled.render(scope);
+            };
+
+        renderer.compiled = compiled;
+
+        return renderer;
+    }
+
+
+    // compile.cmd
+
+    compile.cmd = function(cmdName, handler, standalone){
+        if( isString(cmdName) && isFunction(handler) ) {
+            handler.standalone = standalone;
+            _cmd[cmdName] = handler;
+        }
+    };
+
+
+    // each as compile.cmd example
+
+    var RE_EACH_INDEX = /^(.*)(\,(.*))in(.*)$/,
+        RE_EACH = /^(.*)\bin\b(.*)$/,
+        _cmdEach = function (scope, listExp, itemExp, indexExp) {
+
+          var _this = this,
+              result = '',
+              list = scope.$eval(listExp),
+              indexKey;
+
+          if( isArray(list) ) {
+            indexKey = '$index';
+          } else if( isObject(list) ) {
+            indexKey = '$key';
+          } else {
+            console.warn('can not list', list);
+            return '';
+          }
+
+          _each(list, function (item, index) {
+            var o = {};
+            o[itemExp] = item;
+            o[indexKey] = index;
+            if( indexExp ) {
+              o[indexExp] = index;
+            }
+            result += _this.content( scope.$new(o) );
+          });
+
+          return result;
+        };
+
+    compile.cmd('each', function (scope, expression) {
+          var _this = this, match;
+
+          match = expression.match(RE_EACH_INDEX);
+          if( match ) {
+            return _cmdEach.call(this, scope, match[4], match[1].trim(), match[3].trim());
+          }
+
+          match = expression.match(RE_EACH);
+          if ( match ) {
+            return _cmdEach.call(this, scope, match[2], match[1].trim());
+          }
+
+          throw expression + ' malformed each expression';
+        });
+
+    // partials
+
+    var _partials = {};
+
+    compile.partial = function (key, value) {
+      if( !key ) {
+        return '';
+      }
+
+      if( value ) {
+        _partials[key] = compile(value);
+      }
+      return  _partials[key];
+    };
+
+    compile.cmd('include', function (scope, expression) {
+      var partial = _partials[expression.trim()];
+      if( partial ) {
+        return partial(scope);
+      }
+      partial = _partials[scope.$eval(expression)];
+      if( partial ) {
+        return partial(scope);
+      }
+
+      throw 'partial' + expression + 'not found';
+    });
+
+    // --------------------------
+
+    return compile;
 });
 
 
@@ -2370,25 +2684,35 @@
 })(function () {
 	'use strict';
 
+    function parseExpression (expression) {
+        /* jshint ignore:start */
+        return (new Function('model', 'try{ with(model) { return (' + expression + ') }; } catch(err) { return \'\'; }'));
+        /* jshint ignore:end */
+    }
+
     var Scope = function (data) {
         if( data instanceof Object ) {
-            this.extend(data);
+            this.$$extend(data);
         }
     };
 
-    Scope.prototype.new = function(data) {
+    Scope.prototype.$$new = function(data) {
         var S = function () {
-            this.extend(data);
+            this.$$extend(data);
         };
         S.prototype = this;
         return new S(data);
     };
 
-    Scope.prototype.extend = function(data) {
+    Scope.prototype.$$extend = function(data) {
         for( var key in data ) {
             this[key] = data[key];
         }
         return this;
+    };
+
+    Scope.prototype.$$eval = function ( expression ) {
+        return parseExpression(expression)(this);
     };
 
     return Scope;
@@ -2442,22 +2766,6 @@
 })(function () {
 	'use strict';
 
-    function _extend () {
-        var auxArray = [],
-            dest = auxArray.shift.call(arguments),
-            src = auxArray.shift.call(arguments),
-            key;
-
-        while( src ) {
-            for( key in src ) {
-                dest[key] = src[key];
-            }
-            src = auxArray.shift.call(arguments);
-        }
-
-        return dest;
-    }
-
 	function _isType (type) {
         return function (o) {
             return (typeof o === type);
@@ -2470,7 +2778,7 @@
         };
     }
 
-    function key (o, fullKey, value){
+    function _key (o, fullKey, value){
         if(! o instanceof Object) return false;
         var oKey, keys = fullKey.split('.');
         if(value !== undefined) {
@@ -2497,89 +2805,63 @@
         }
     }
 
-    function extend () {
-        if( arguments.length > 1 ) {
-            var target = [].shift.call(arguments), o = [].shift.call(arguments);
-
-            while( o ) {
-                _extend(target, o);
-                o = [].shift.call(arguments);
-            }
-        }
-    }
-
     var RE_$$ = /^\$\$/,
-        auxArray = [];
+        arrayShift = [].shift;
 
-        function _extendByType (orig, sanitize) {
-            if( orig instanceof Array ) {
-                return _deepExtend([], orig, sanitize);
-            } else if( orig instanceof Object ) {
-                return _deepExtend({}, orig, sanitize);
-            }
-            return orig;
-        }
+        function _merge () {
+            var dest = arrayShift.call(arguments),
+                src = arrayShift.call(arguments),
+                key;
 
-        function _deepExtend (dest, orig, sanitize) {
+            while( src ) {
 
-            if( dest === undefined ) {
-
-                return _extendByType(orig);
-
-            }
-
-            if( orig instanceof Array ) {
-
-                if( !dest instanceof Array ) {
-                    return _deepExtend([], orig, sanitize);
+                if( typeof dest !== typeof src ) {
+                    dest = ( src instanceof Array ) ? [] : ( src instanceof Object ? {} : src );
                 }
 
-                for( var i = 0, len = orig.length; i < len; i++ ) {
+                if( src instanceof Object ) {
 
-                    if( dest[i] ) {
-                        dest[i] = _deepExtend(dest[i], orig[i], sanitize);
-                    } else {
-                        dest.push(_extendByType(orig[i]));
+                    for( key in src ) {
+                        if( src[key] !== undefined ) {
+                            if( typeof dest[key] !== typeof src[key] ) {
+                                dest[key] = _merge(undefined, src[key]);
+                            } else if( dest[key] instanceof Array ) {
+                                [].push.apply(dest[key], src[key]);
+                            } else if( dest[key] instanceof Object ) {
+                                dest[key] = _merge(dest[key], src[key]);
+                            } else {
+                                dest[key] = src[key];
+                            }
+                        }
                     }
                 }
-
-            } else if( orig instanceof Object ) {
-
-                if( !dest instanceof Object ) {
-                    return _deepExtend({}, orig, sanitize);
-                }
-
-                for( var key in orig ) {
-                    if( !sanitize || !RE_$$.test(key) ) {
-
-                        dest[key] = _deepExtend(dest[key], orig[key], sanitize);
-                    }
-                }
+                src = arrayShift.call(arguments);
             }
 
             return dest;
         }
 
-        function deepExtend () {
+        function _extend () {
+            var dest = arrayShift.call(arguments),
+                src = arrayShift.call(arguments),
+                key;
 
-            if( arguments.length < 2 ) {
-                return arguments[0];
+            while( src ) {
+                for( key in src) {
+                    if( typeof dest[key] !== typeof src[key] ) {
+                        dest[key] = src[key];
+                    } else {
+                        dest[key] = src[key];
+                    }
+                }
+                src = arrayShift.call(arguments);
             }
 
-            var first = auxArray.shift.apply(arguments),
-                next = auxArray.shift.apply(arguments);
-
-            while( next ) {
-                _deepExtend(first, next);
-                next = auxArray.shift.apply(arguments);
-            }
-
-            return first;
+            return dest;
         }
 
-        function sanitize (obj) {
-
-            return _deepExtend({}, obj, true);
+        function _copy (o) {
+            return _merge(undefined, o);
         }
 
 
@@ -2719,10 +3001,13 @@
         isRegExp: _instanceOf(RegExp),
 		isObject: function (myVar,type){ if( myVar instanceof Object ) return ( type === 'any' ) ? true : ( typeof myVar === (type || 'object') ); else return false; },
 
-		key: key,
+		key: _key,
     	keys: Object.keys,
 
-    	extend: extend,
+        extend: _extend,
+    	merge: _merge,
+        copy: _copy,
+
         matchAll: matchAll,
         matchAny: matchAny,
         find: find,
@@ -2730,14 +3015,7 @@
 
         joinPath: joinPath,
 
-        sanitize: sanitize,
-        merge: deepExtend,
-        copy: function (o) {
-            if( o instanceof Array ) {
-                return deepExtend([], o);
-            }
-            return deepExtend({}, o);
-        },
+        // sanitize: sanitize,
 
         each: each,
         indexOf: indexOf,
@@ -2779,8 +3057,39 @@
         return new Chain(value);
     }
 
-    extend(_, _Funcs);
+    _extend(_, _Funcs);
 
 	return _;
 
 }, this);
+
+
+/*  ----------------------------------------------------------------------------------------- */
+
+/*
+ * jengine - A Powerful javascript framework to build your website/application
+
+ * The MIT License (MIT)
+ * 
+ * Copyright (c) 2014 Jesús Manuel Germade Castiñeiras <jesus@germade.es>
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ * 
+ */
+

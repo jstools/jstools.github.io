@@ -79,7 +79,7 @@
 										<a href="/page/jengine/jstools-cookie/">cookie</a>
 									</li>
                   
-									<li class="">
+									<li class="text-bold">
 										<a href="/page/jengine/jstools-http/">http</a>
 									</li>
                   
@@ -89,11 +89,35 @@
 					</nav>
 
 					<article class="article">
-						<a class="pull-right btn btn-link" href="" target="_blank">
+						<a class="pull-right btn btn-link" href="https://github.com/jstools/http.git" target="_blank">
 							<span class="icon icon-github"></span>
 							<span>Github</span>
 						</a>
-						<div class="readme"></div>
+						<div class="readme"><h1 id="jstools-http">jsTools: http</h1>
+<p><a href="http://badge.fury.io/bo/jstools-http"><img src="https://badge.fury.io/bo/jstools-http.svg" alt="Bower version"></a>
+<a href="http://badge.fury.io/js/jstools-http"><img src="https://badge.fury.io/js/jstools-http.svg" alt="npm version"></a></p>
+<pre><code class="lang-.js">http.get(&#39;/items.json&#39;);
+
+http.post(&#39;/items.json&#39;, {
+    prop1: &#39;value1&#39;
+});
+
+http.put(&#39;/items.json&#39;, {
+    prop1: &#39;another value&#39;
+});
+
+http.delete(&#39;/items.json&#39;);
+
+http.patch(&#39;/items.json&#39;, {
+    op: &#39;add&#39;, path: &#39;/prop1&#39;, value: &#39;one more value&#39;
+});
+
+http.patch(&#39;/items.json&#39;)
+    .remove(&#39;/prop1&#39;)
+    .add(&#39;/list/-&#39;, { subprop: &#39;sample value&#39; })
+    .submit();
+</code></pre>
+</div>
 					</article>
 
 				</div>

@@ -1978,6 +1978,16 @@ a.regular:active {
 .btn.btn-primary:active {
   background-color: #214cce;
 }
+.btn.btn-dark {
+  background-color: #444444;
+  color: white;
+}
+.btn.btn-dark:hover {
+  background-color: #373737;
+}
+.btn.btn-dark:active {
+  background-color: #2b2b2b;
+}
 html,
 body {
   margin: 0;

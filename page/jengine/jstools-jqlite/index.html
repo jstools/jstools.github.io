@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jsTools</title>
+		<link rel="shortcut icon" type="image/x-icon" href="https://jstools.github.io/public/assets/images/jstools.png" />
+
+		<link href="https://jstools.github.io/public/jstools.css" rel="stylesheet">
+
+		<script src="https://jstools.github.io/public/jEngine.js"></script>
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+
+		<script src="https://jstools.github.io/public/assets/highlight-plugin.js"></script>
+
+
+		
+	</head>
+	<body>
+		<div class="height-wrapper">
+			<header id="header">
+				<div class="container">
+					<div class="github-follow">
+
+						<span class="btn-height">Follow projects in </span>
+
+						<a class="btn btn-primary" href="https://github.com/jstools" target="_blank">
+							<span class="icon icon-github"></span>
+							<span>Github</span>
+						</a>
+
+					</div>
+
+					<a href="/">
+						<img class="logo" src="/public/assets/images/jstools.svg" alt=""/>
+					</a>
+					<div class="title-wrapper">
+						<a href="/">
+							<h1 class="title">jsTools</h1>
+						</a>
+						<h2 class="subtitle">Useful Javascript libraries collection</h2>
+					</div>
+				</div>
+			</header>
+			<section id="main">
+				<div class="container">
+
+					<nav id="libs-nav">
+						<ul>
+							<li>
+								<a href="/page/jengine" target="_blank">jEngine</a>
+								<ul>
+                  
+									<li class="">
+										<a href="/page/jengine/jstools-fn/">fn</a>
+									</li>
+                  
+									<li class="text-bold">
+										<a href="/page/jengine/jstools-jqlite/">jqlite</a>
+									</li>
+                  
+									<li class="">
+										<a href="/page/jengine/jq-plugin/">jq-plugin</a>
+									</li>
+                  
+									<li class="">
+										<a href="/page/jengine/jstools-compile/">compile</a>
+									</li>
+                  
+									<li class="">
+										<a href="/page/jengine/jstools-events/">events</a>
+									</li>
+                  
+									<li class="">
+										<a href="/page/jengine/jstools-promise/">promise</a>
+									</li>
+                  
+									<li class="">
+										<a href="/page/jengine/jstools-cookie/">cookie</a>
+									</li>
+                  
+									<li class="">
+										<a href="/page/jengine/jstools-http/">http</a>
+									</li>
+                  
+								</ul>
+							</li>
+						</ul>
+					</nav>
+
+					<article class="article">
+						<a class="pull-right btn btn-link" href="https://github.com/jstools/jqlite.git" target="_blank">
+							<span class="icon icon-github"></span>
+							<span>Github</span>
+						</a>
+						<div class="readme"><p><a href="http://badge.fury.io/js/jqlite"><img src="https://badge.fury.io/js/jqlite.svg" alt="npm version"></a>
+<a href="http://badge.fury.io/bo/jstools-jqlite"><img src="https://badge.fury.io/bo/jstools-jqlite.svg" alt="Bower version"></a>
+<a href="https://travis-ci.org/jstools/jqlite"><img src="https://travis-ci.org/jstools/jqlite.svg?branch=master" alt="Build Status"></a></p>
+<h1 id="jqlite">jqlite</h1>
+<p>Tiny JavaScript DOM query library</p>
+<pre><code class="lang-.sh">npm install jqlite --save
+</code></pre>
+<p>or</p>
+<pre><code class="lang-.sh">bower install jstools-jqlite --save
+</code></pre>
+<p>jQuery Methods provided by jn-jqlite (jEngine jqlite)</p>
+<ul>
+<li>[x] <a href="http://api.jquery.com/get/"><code>get()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/eq/"><code>eq()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/addClass/"><code>addClass()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/after/"><code>after()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/append/"><code>append()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/attr/"><code>attr()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/children/"><code>children()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/closest/"><code>closest()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/clone/"><code>clone()</code></a> - clone events not yet supported</li>
+<li>[x] <a href="http://api.jquery.com/contents/"><code>contents()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/css/"><code>css()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/data/"><code>data()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/detach/"><code>detach()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/empty/"><code>empty()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/find/"><code>find()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/hasClass/"><code>hasClass()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/html/"><code>html()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/next/"><code>next()</code></a> - Does not support selectors</li>
+<li>[x] <a href="http://api.jquery.com/on/"><code>on()</code></a> - Does not support namespaces, selectors or eventData</li>
+<li>[x] <a href="http://api.jquery.com/off/"><code>off()</code></a> - Does not support namespaces or selectors</li>
+<li>[x] <a href="http://api.jquery.com/one/"><code>one()</code></a> - Does not support namespaces or selectors</li>
+<li>[x] <a href="http://api.jquery.com/parent/"><code>parent()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/prepend/"><code>prepend()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/prop/"><code>prop()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/ready/"><code>ready()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/remove/"><code>remove()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/removeAttr/"><code>removeAttr()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/removeClass/"><code>removeClass()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/removeData/"><code>removeData()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/replaceWith/"><code>replaceWith()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/text/"><code>text()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/toggleClass/"><code>toggleClass()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/trigger/"><code>trigger()</code></a> - Does not support selectors</li>
+<li>[x] <a href="http://api.jquery.com/val/"><code>val()</code></a></li>
+<li><p>[x] <a href="http://api.jquery.com/wrap/"><code>wrap()</code></a></p>
+</li>
+<li><p>[x] <a href="http://api.jquery.com/click/"><code>click()</code></a></p>
+</li>
+<li>[x] <a href="http://api.jquery.com/focus/"><code>focus()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/blur/"><code>blur()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/submit/"><code>submit()</code></a></li>
+</ul>
+</div>
+					</article>
+
+				</div>
+			</section>
+		</div>
+		<footer id="footer">
+			<div class="container">
+				<div class="text-wrapper">
+
+					<div class="author text-right">
+						<span class="label">Author: </span>
+						<a class="regular" href="http://jesus.germade.es" target="_blank">Jesús Germade</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
