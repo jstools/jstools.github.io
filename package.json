@@ -43,6 +43,6 @@
     "time-grunt": "^1.1.1"
   },
   "dependencies": {
-    "jengine": "^0.1.22"
+    "jengine": "^0.1.23"
   }
 }

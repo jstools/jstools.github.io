@@ -1,7 +1,6 @@
 
-$(function () {
-  // $.plugin('code', function() {
-  //   console.log(this);
-  //   hljs.highlightBlock(this);
-  // } );
-});
+// $(function () {
+  $.plugin('code', function() {
+    hljs.highlightBlock(this);
+  } );
+// });
