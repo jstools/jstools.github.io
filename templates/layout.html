@@ -48,7 +48,7 @@
 					<nav id="libs-nav">
 						<ul>
 							<li>
-								<a href="/page/jengine" target="_blank">jEngine</a>
+								<a href="/page/jengine">jEngine</a>
 								<ul>
                   $each{jstool in bower.dependencies}
 									<li class="$if{dependence === $key}text-bold{/}">
@@ -61,10 +61,12 @@
 					</nav>
 
 					<article class="article">
+						$if{dependence}
 						<a class="pull-right btn btn-link" href="${githubUrl}" target="_blank">
 							<span class="icon icon-github"></span>
 							<span>Github</span>
 						</a>
+						{/}
 						<div class="readme">${article}</div>
 					</article>
 
