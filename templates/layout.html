@@ -8,13 +8,12 @@
 		<link href="${host}/public/jstools.css" rel="stylesheet">
 
 		<script src="${host}/public/jEngine.js"></script>
-		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
-		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
-
-		<script src="${host}/public/assets/highlight-plugin.js"></script>
-
 
 		$if{debug}<script src="//localhost:54321/livereload.js"></script>{/}
+
+		<!--<script src="${host}/public/assets/highlight-plugin.js"></script>
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>-->
 	</head>
 	<body>
 		<div class="height-wrapper">
@@ -67,7 +66,7 @@
 							<span>Github</span>
 						</a>
 						{/}
-						<div class="readme">${article}</div>
+						<div class="readme markdown-body">${article}</div>
 					</article>
 
 				</div>
