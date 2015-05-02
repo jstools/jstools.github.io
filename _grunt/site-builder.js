@@ -39,6 +39,7 @@ env.host = env.pkg.homepage;
 
 module.exports = function (options) {
   options = options || {};
+
   if( options.debug ) {
     env.host = '//localhost:8080';
     env.debug = true;

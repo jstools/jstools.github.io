@@ -1,4 +1,6 @@
 
   $.plugin('code', function() {
-    hljs.highlightBlock(this);
+    if( this.parentNode.nodeName !== 'A' ) {
+      hljs.highlightBlock(this);
+    }
   } );

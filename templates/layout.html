@@ -47,10 +47,10 @@
 					<nav id="libs-nav">
 						<ul>
 							<li>
-								<a href="/page/jengine">jEngine</a>
+								<a href="/page/jengine/">jEngine</a>
 								<ul>
                   $each{jstool in bower.dependencies}
-									<li class="$if{dependence === $key}text-bold{/}">
+									<li class="$if{dependence === $key}active{/}">
 										<a href="/page/jengine/${$key}/">${jstoolLabel($key)}</a>
 									</li>
                   {/}

@@ -47,7 +47,7 @@
 					<nav id="libs-nav">
 						<ul>
 							<li>
-								<a href="/page/jengine">jEngine</a>
+								<a href="/page/jengine/">jEngine</a>
 								<ul>
                   
 									<li class="">
@@ -70,7 +70,7 @@
 										<a href="/page/jengine/jstools-events/">events</a>
 									</li>
                   
-									<li class="text-bold">
+									<li class="active">
 										<a href="/page/jengine/jstools-promise/">promise</a>
 									</li>
                   
@@ -80,6 +80,14 @@
                   
 									<li class="">
 										<a href="/page/jengine/jstools-http/">http</a>
+									</li>
+                  
+									<li class="">
+										<a href="/page/jengine/jstools-scope/">scope</a>
+									</li>
+                  
+									<li class="">
+										<a href="/page/jengine/jstools-utils/">utils</a>
 									</li>
                   
 								</ul>
@@ -94,16 +102,18 @@
 							<span>Github</span>
 						</a>
 						
-						<div class="readme markdown-body"><h1 id="jstools-promise">jsTools: Promise</h1>
+						<div class="readme markdown-body"><h1 id="jengine-promise-wercker-status-https-app-wercker-com-status-ea1a628b907d1613503a54e03df4cadd-s-wercker-status-https-app-wercker-com-project-bykey-ea1a628b907d1613503a54e03df4cadd-">jEngine: $promise <a href="https://app.wercker.com/project/bykey/ea1a628b907d1613503a54e03df4cadd"><img src="https://app.wercker.com/status/ea1a628b907d1613503a54e03df4cadd/s" alt="wercker status" title="wercker status"></a></h1>
 <p><a href="http://badge.fury.io/bo/jstools-promise"><img src="https://badge.fury.io/bo/jstools-promise.svg" alt="Bower version"></a>
 <a href="http://badge.fury.io/js/jstools-promise"><img src="https://badge.fury.io/js/jstools-promise.svg" alt="npm version"></a>
 <a href="https://travis-ci.org/jstools/promise"><img src="https://travis-ci.org/jstools/promise.svg?branch=master" alt="Build Status"></a></p>
-<pre><code class="lang-.sh">npm install jstools-promise --save
+<h2 id="installation">Installation</h2>
+<pre><code class="lang-sh">npm install jstools-promise --save
 </code></pre>
-<p>or</p>
-<pre><code class="lang-.sh">bower install jstools-promise --save
+<p>  or</p>
+<pre><code class="lang-sh">bower install jstools-promise --save
 </code></pre>
-<pre><code class="lang-.js">new qPromise(function (resolve, reject) {
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-js">new qPromise(function (resolve, reject) {
         resolve(&#39;gogogo!&#39;);
     })
 
@@ -134,8 +144,8 @@
     })
 ;
 </code></pre>
-<p>output will be:</p>
-<pre><code class="lang-.sh">checkpoint 1 gogogo!
+<p>output:</p>
+<pre><code class="lang-sh">checkpoint 1 gogogo!
 checkpoint 2.1 whoops!
 # elapsed 400ms
 checkpoint 3 all right!

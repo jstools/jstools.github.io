@@ -62,7 +62,7 @@
 										<a href="/page/jengine/jq-plugin/">jq-plugin</a>
 									</li>
                   
-									<li class="active">
+									<li class="">
 										<a href="/page/jengine/jstools-compile/">compile</a>
 									</li>
                   
@@ -82,7 +82,7 @@
 										<a href="/page/jengine/jstools-http/">http</a>
 									</li>
                   
-									<li class="">
+									<li class="active">
 										<a href="/page/jengine/jstools-scope/">scope</a>
 									</li>
                   
@@ -97,43 +97,29 @@
 
 					<article class="article">
 						
-						<a class="pull-right btn btn-link" href="https://github.com/jstools/compile" target="_blank">
+						<a class="pull-right btn btn-link" href="https://github.com/jstools/scope" target="_blank">
 							<span class="icon icon-github"></span>
 							<span>Github</span>
 						</a>
 						
-						<div class="readme markdown-body"><h1 id="jengine-compile-wercker-status-https-app-wercker-com-status-5cf7af073a466325d96ad751d99761c5-s-wercker-status-https-app-wercker-com-project-bykey-5cf7af073a466325d96ad751d99761c5-">jEngine: $compile <a href="https://app.wercker.com/project/bykey/5cf7af073a466325d96ad751d99761c5"><img src="https://app.wercker.com/status/5cf7af073a466325d96ad751d99761c5/s" alt="wercker status" title="wercker status"></a></h1>
-<p><a href="http://badge.fury.io/bo/jstools-compile"><img src="https://badge.fury.io/bo/jstools-compile.svg" alt="Bower version"></a>
-<a href="http://badge.fury.io/js/jstools-compile"><img src="https://badge.fury.io/js/jstools-compile.svg" alt="npm version"></a>
-<a href="https://travis-ci.org/jstools/compile"><img src="https://travis-ci.org/jstools/compile.svg?branch=master" alt="Build Status"></a></p>
+						<div class="readme markdown-body"><h1 id="jengine-scope-wercker-status-https-app-wercker-com-status-5171150383b23595c99e25435ccb0135-s-wercker-status-https-app-wercker-com-project-bykey-5171150383b23595c99e25435ccb0135-">jEngine: Scope <a href="https://app.wercker.com/project/bykey/5171150383b23595c99e25435ccb0135"><img src="https://app.wercker.com/status/5171150383b23595c99e25435ccb0135/s" alt="wercker status" title="wercker status"></a></h1>
+<p><a href="http://badge.fury.io/bo/jstools-scope"><img src="https://badge.fury.io/bo/jstools-scope.svg" alt="Bower version"></a>
+<a href="http://badge.fury.io/js/jstools-scope"><img src="https://badge.fury.io/js/jstools-scope.svg" alt="npm version"></a>
+<a href="https://travis-ci.org/jstools/scope"><img src="https://travis-ci.org/jstools/scope.svg?branch=master" alt="Build Status"></a></p>
 <h2 id="installation">Installation</h2>
-<pre><code class="lang-sh">npm install jstools-compile --save
+<pre><code class="lang-sh">npm install jstools-scope --save
 </code></pre>
 <p>  or</p>
-<pre><code class="lang-sh">bower install jstools-compile --save
+<pre><code class="lang-sh">bower install jstools-scope --save
 </code></pre>
 <h2 id="usage">Usage</h2>
-<pre><code class="lang-js">var data = {
-  foo: &#39;bar&#39;,
-  crash: {
-    test: &#39;dummy&#39;
-  },
-  list: [&#39;foo&#39;, &#39;bar&#39;, &#39;foobar&#39;],
-  map: {
-    hi: &#39;all&#39;,
-    bye: &#39;nobody&#39;
-  },
-  template: &#39;sample&#39;,
-  label: {
-    cancel: &#39;cancel&#39;
-  }
-};
+<pre><code class="lang-js">var s1 = new Scope({ foo: &#39;bar&#39;, overlap: &#39;v1&#39;, obj: { value: &#39;pristine&#39; } });
+var s2 = s1.$$new({ overlap: &#39;v2&#39; });
 
-$compile(&#39;$if{ foo === &quot;bar&quot; }gogogo{:}whoops{/}&#39;)(data)
-// returns &#39;gogogo&#39;
+var s3 = s2.$$new();
 
-compile(&#39;$each{ item, key in map }[${foo}:${key}:${item}]{/}&#39;)(data);
-// returns &#39;[bar:hi:all][bar:bye:nobody]&#39;
+s3.foo = &#39;changed&#39;;
+s3.obj.value = &#39;dirty&#39;;
 </code></pre>
 </div>
 					</article>

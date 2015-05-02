@@ -47,10 +47,10 @@
 					<nav id="libs-nav">
 						<ul>
 							<li>
-								<a href="/page/jengine">jEngine</a>
+								<a href="/page/jengine/">jEngine</a>
 								<ul>
                   
-									<li class="text-bold">
+									<li class="active">
 										<a href="/page/jengine/jstools-fn/">fn</a>
 									</li>
                   
@@ -82,6 +82,14 @@
 										<a href="/page/jengine/jstools-http/">http</a>
 									</li>
                   
+									<li class="">
+										<a href="/page/jengine/jstools-scope/">scope</a>
+									</li>
+                  
+									<li class="">
+										<a href="/page/jengine/jstools-utils/">utils</a>
+									</li>
+                  
 								</ul>
 							</li>
 						</ul>
@@ -94,15 +102,18 @@
 							<span>Github</span>
 						</a>
 						
-						<div class="readme markdown-body"><p><a href="http://badge.fury.io/js/jstools-fn"><img src="https://badge.fury.io/js/jstools-fn.svg" alt="npm version"></a>
+						<div class="readme markdown-body"><h1 id="jengine-fn-wercker-status-https-app-wercker-com-status-2675049afb0e2dc763867d5d6bcde848-s-wercker-status-https-app-wercker-com-project-bykey-2675049afb0e2dc763867d5d6bcde848-">jEngine: fn <a href="https://app.wercker.com/project/bykey/2675049afb0e2dc763867d5d6bcde848"><img src="https://app.wercker.com/status/2675049afb0e2dc763867d5d6bcde848/s" alt="wercker status" title="wercker status"></a></h1>
+<p><a href="http://badge.fury.io/js/jstools-fn"><img src="https://badge.fury.io/js/jstools-fn.svg" alt="npm version"></a>
 <a href="http://badge.fury.io/bo/jstools-fn"><img src="https://badge.fury.io/bo/jstools-fn.svg" alt="Bower version"></a>
 <a href="https://travis-ci.org/jstools/fn"><img src="https://travis-ci.org/jstools/fn.svg?branch=master" alt="Build Status"></a></p>
-<h1 id="jstool-core">jsTool: core</h1>
 <blockquote>
-<p><a href="LICENSE">MIT License</a>
-global function &#39;fn&#39; to sandbox all other definitions</p>
+<p><a href="LICENSE">MIT License</a></p>
+<p>global function &#39;fn&#39; to sandbox all other definitions</p>
 </blockquote>
+<h2 id="old-browsers">Old Browsers</h2>
+<blockquote>
 <p>it&#39;s recomended to add this code before scripts to ensure compatibility with old browsers</p>
+</blockquote>
 <pre><code class="lang-html">&lt;!--[if lt IE 9]&gt;
     &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/es5-shim/4.0.5/es5-shim.min.js&quot;&gt;&lt;/script&gt;
 &lt;![endif]--&gt;
@@ -110,7 +121,14 @@ global function &#39;fn&#39; to sandbox all other definitions</p>
     &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/es6-shim/0.21.1/es6-shim.min.js&quot;&gt;&lt;/script&gt;
 &lt;![endif]--&gt;
 </code></pre>
-<h2 id="fn-define-modulename-dependencies-definition-">fn.define(moduleName, dependencies?, definition)</h2>
+<h2 id="installation">Installation</h2>
+<pre><code class="lang-sh">npm install jstools-fn --save
+</code></pre>
+<p>  or</p>
+<pre><code class="lang-sh">bower install jstools-fn --save
+</code></pre>
+<h2 id="usage">Usage</h2>
+<h3 id="fn-define-modulename-dependencies-definition-">fn.define(moduleName, dependencies?, definition)</h3>
 <pre><code class="lang-js">fn.define(&#39;moduleName&#39;, [ &#39;dependence_1&#39;, &#39;dependence_2&#39;, ..., function ( dependence_1, dependence_1, ...) {
 
     // your code
@@ -118,7 +136,7 @@ global function &#39;fn&#39; to sandbox all other definitions</p>
     return definition;
 } ]);
 </code></pre>
-<p>example</p>
+<h3 id="example">example</h3>
 <pre><code class="lang-js">fn.define(&#39;isLargeString&#39;, [ &#39;_&#39;, function ( _ ) {
 
     function isLargeString (str) {
@@ -128,41 +146,45 @@ global function &#39;fn&#39; to sandbox all other definitions</p>
     return isLargeString;
 } ]);
 </code></pre>
-<h2 id="fn-require-dependencies-callback-">fn.require(dependencies, callback)</h2>
+<h3 id="fn-require-dependencies-callback-">fn.require(dependencies, callback)</h3>
 <pre><code class="lang-js">fn.require([&#39;dependence_1&#39;, &#39;dependence_2&#39;], function ( dependence_1, dependence_1 ) {
 
     // your code
 
 } ]);
 </code></pre>
-<h2 id="fn-run-dependencies-function-">fn.run(dependencies || function)</h2>
+<h3 id="fn-run-dependencies-function-">fn.run(dependencies || function)</h3>
 <blockquote>
 <p>or just <strong>fn(dependencies || function)</strong></p>
-</blockquote>
 <p>explicit injection mode</p>
+</blockquote>
 <pre><code class="lang-js">fn.run([&#39;dependence_1&#39;, &#39;dependence_2&#39;, function ( dependence_1, dependence_1 ) {
 
     // your code
 
 } ]);
 </code></pre>
+<blockquote>
 <p>implicit injection mode (dependencies will be automatically detected -not recomended when uglifying code- )</p>
+</blockquote>
 <pre><code class="lang-js">fn.run(function ( dependence_1, dependence_1 ) {
 
     // your code
 
 });
 </code></pre>
-<h2 id="fn-defer-function-timeout-0-">fn.defer(function, timeout? (0) )</h2>
+<h3 id="fn-defer-function-timeout-0-">fn.defer(function, timeout? (0) )</h3>
 <pre><code class="lang-js">fn(function () { console.log(&#39;test 1&#39;); });
 fn.defer(function () { console.log(&#39;test 2&#39;); });
 fn(function () { console.log(&#39;test 3&#39;); });
 </code></pre>
-<p>this will output</p>
+<blockquote>
+<p>output:</p>
 <pre><code>test 1
 test 3
 test 2
-</code></pre></div>
+</code></pre></blockquote>
+</div>
 					</article>
 
 				</div>

@@ -47,7 +47,7 @@
 					<nav id="libs-nav">
 						<ul>
 							<li>
-								<a href="/page/jengine">jEngine</a>
+								<a href="/page/jengine/">jEngine</a>
 								<ul>
                   
 									<li class="">
@@ -58,7 +58,7 @@
 										<a href="/page/jengine/jstools-jqlite/">jqlite</a>
 									</li>
                   
-									<li class="text-bold">
+									<li class="active">
 										<a href="/page/jengine/jq-plugin/">jq-plugin</a>
 									</li>
                   
@@ -82,6 +82,14 @@
 										<a href="/page/jengine/jstools-http/">http</a>
 									</li>
                   
+									<li class="">
+										<a href="/page/jengine/jstools-scope/">scope</a>
+									</li>
+                  
+									<li class="">
+										<a href="/page/jengine/jstools-utils/">utils</a>
+									</li>
+                  
 								</ul>
 							</li>
 						</ul>
@@ -94,10 +102,28 @@
 							<span>Github</span>
 						</a>
 						
-						<div class="readme markdown-body"><h1 id="jstools-jq-plugin">jsTools: jq-plugin</h1>
+						<div class="readme markdown-body"><h1 id="jengine-jq-plugin">jEngine: jq-plugin</h1>
 <p><a href="http://badge.fury.io/bo/jq-plugin"><img src="https://badge.fury.io/bo/jq-plugin.svg" alt="Bower version"></a>
 <a href="http://badge.fury.io/js/jq-plugin"><img src="https://badge.fury.io/js/jq-plugin.svg" alt="npm version"></a>
 <a href="https://travis-ci.org/jstools/jq-plugin"><img src="https://travis-ci.org/jstools/jq-plugin.svg?branch=master" alt="Build Status"></a></p>
+<h2 id="installation">Installation</h2>
+<pre><code class="lang-sh">npm install jq-plugin --save
+</code></pre>
+<p>  or</p>
+<pre><code class="lang-sh">bower install jq-plugin --save
+</code></pre>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-html">&lt;button&gt;Hola&lt;/button&gt;
+</code></pre>
+<pre><code class="lang-js">// $.plugin(selector, handler, isCollection?)
+$.plugin(&#39;button&#39;, function () {
+  var jBtn = $(this);
+
+  jBtn.click(function () {
+    alert(jBtn.text());
+  });
+});
+</code></pre>
 </div>
 					</article>
 

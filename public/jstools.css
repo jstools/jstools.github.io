@@ -2077,6 +2077,10 @@ article.article {
 #libs-nav ul ul li {
   padding-left: 1rem;
 }
+#libs-nav ul ul li.active > a {
+  color: royalblue;
+  font-weight: bold;
+}
 #main {
   padding: 1rem 0;
 }

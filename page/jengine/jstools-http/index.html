@@ -47,7 +47,7 @@
 					<nav id="libs-nav">
 						<ul>
 							<li>
-								<a href="/page/jengine">jEngine</a>
+								<a href="/page/jengine/">jEngine</a>
 								<ul>
                   
 									<li class="">
@@ -78,8 +78,16 @@
 										<a href="/page/jengine/jstools-cookie/">cookie</a>
 									</li>
                   
-									<li class="text-bold">
+									<li class="active">
 										<a href="/page/jengine/jstools-http/">http</a>
+									</li>
+                  
+									<li class="">
+										<a href="/page/jengine/jstools-scope/">scope</a>
+									</li>
+                  
+									<li class="">
+										<a href="/page/jengine/jstools-utils/">utils</a>
 									</li>
                   
 								</ul>
@@ -94,26 +102,33 @@
 							<span>Github</span>
 						</a>
 						
-						<div class="readme markdown-body"><h1 id="jstools-http">jsTools: http</h1>
+						<div class="readme markdown-body"><h1 id="jengine-http">jEngine: $http</h1>
 <p><a href="http://badge.fury.io/bo/jstools-http"><img src="https://badge.fury.io/bo/jstools-http.svg" alt="Bower version"></a>
 <a href="http://badge.fury.io/js/jstools-http"><img src="https://badge.fury.io/js/jstools-http.svg" alt="npm version"></a></p>
-<pre><code class="lang-.js">http.get(&#39;/items.json&#39;);
+<h2 id="installation">Installation</h2>
+<pre><code class="lang-sh">npm install jstools-http --save
+</code></pre>
+<p>or</p>
+<pre><code class="lang-sh">bower install jstools-http --save
+</code></pre>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-js">$http.get(&#39;/items.json&#39;);
 
-http.post(&#39;/items.json&#39;, {
+$http.post(&#39;/items.json&#39;, {
     prop1: &#39;value1&#39;
 });
 
-http.put(&#39;/items.json&#39;, {
+$http.put(&#39;/items.json&#39;, {
     prop1: &#39;another value&#39;
 });
 
-http.delete(&#39;/items.json&#39;);
+$http.delete(&#39;/items.json&#39;);
 
-http.patch(&#39;/items.json&#39;, {
+$http.patch(&#39;/items.json&#39;, {
     op: &#39;add&#39;, path: &#39;/prop1&#39;, value: &#39;one more value&#39;
 });
 
-http.patch(&#39;/items.json&#39;)
+$http.patch(&#39;/items.json&#39;)
     .remove(&#39;/prop1&#39;)
     .add(&#39;/list/-&#39;, { subprop: &#39;sample value&#39; })
     .submit();

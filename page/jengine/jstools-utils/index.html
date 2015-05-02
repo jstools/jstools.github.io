@@ -62,7 +62,7 @@
 										<a href="/page/jengine/jq-plugin/">jq-plugin</a>
 									</li>
                   
-									<li class="active">
+									<li class="">
 										<a href="/page/jengine/jstools-compile/">compile</a>
 									</li>
                   
@@ -86,7 +86,7 @@
 										<a href="/page/jengine/jstools-scope/">scope</a>
 									</li>
                   
-									<li class="">
+									<li class="active">
 										<a href="/page/jengine/jstools-utils/">utils</a>
 									</li>
                   
@@ -97,43 +97,38 @@
 
 					<article class="article">
 						
-						<a class="pull-right btn btn-link" href="https://github.com/jstools/compile" target="_blank">
+						<a class="pull-right btn btn-link" href="https://github.com/jstools/utils" target="_blank">
 							<span class="icon icon-github"></span>
 							<span>Github</span>
 						</a>
 						
-						<div class="readme markdown-body"><h1 id="jengine-compile-wercker-status-https-app-wercker-com-status-5cf7af073a466325d96ad751d99761c5-s-wercker-status-https-app-wercker-com-project-bykey-5cf7af073a466325d96ad751d99761c5-">jEngine: $compile <a href="https://app.wercker.com/project/bykey/5cf7af073a466325d96ad751d99761c5"><img src="https://app.wercker.com/status/5cf7af073a466325d96ad751d99761c5/s" alt="wercker status" title="wercker status"></a></h1>
-<p><a href="http://badge.fury.io/bo/jstools-compile"><img src="https://badge.fury.io/bo/jstools-compile.svg" alt="Bower version"></a>
-<a href="http://badge.fury.io/js/jstools-compile"><img src="https://badge.fury.io/js/jstools-compile.svg" alt="npm version"></a>
-<a href="https://travis-ci.org/jstools/compile"><img src="https://travis-ci.org/jstools/compile.svg?branch=master" alt="Build Status"></a></p>
+						<div class="readme markdown-body"><h1 id="jstools-utils-wercker-status-https-app-wercker-com-status-3f20841faade376a5a8cc5aaf1051230-s-wercker-status-https-app-wercker-com-project-bykey-3f20841faade376a5a8cc5aaf1051230-">jsTools: $utils <a href="https://app.wercker.com/project/bykey/3f20841faade376a5a8cc5aaf1051230"><img src="https://app.wercker.com/status/3f20841faade376a5a8cc5aaf1051230/s" alt="wercker status" title="wercker status"></a></h1>
+<p><a href="http://badge.fury.io/bo/jstools-utils"><img src="https://badge.fury.io/bo/jstools-utils.svg" alt="Bower version"></a>
+<a href="http://badge.fury.io/js/jstools-utils"><img src="https://badge.fury.io/js/jstools-utils.svg" alt="npm version"></a>
+<a href="https://travis-ci.org/jstools/utils"><img src="https://travis-ci.org/jstools/utils.svg?branch=master" alt="Build Status"></a></p>
 <h2 id="installation">Installation</h2>
-<pre><code class="lang-sh">npm install jstools-compile --save
+<pre><code class="lang-sh">npm install jstools-utils --save
 </code></pre>
 <p>  or</p>
-<pre><code class="lang-sh">bower install jstools-compile --save
+<pre><code class="lang-sh">bower install jstools-utils --save
 </code></pre>
 <h2 id="usage">Usage</h2>
-<pre><code class="lang-js">var data = {
-  foo: &#39;bar&#39;,
-  crash: {
-    test: &#39;dummy&#39;
-  },
-  list: [&#39;foo&#39;, &#39;bar&#39;, &#39;foobar&#39;],
-  map: {
-    hi: &#39;all&#39;,
-    bye: &#39;nobody&#39;
-  },
-  template: &#39;sample&#39;,
-  label: {
-    cancel: &#39;cancel&#39;
-  }
-};
+<p>Underscore object &#39;_&#39; with useful functions</p>
+<pre><code class="lang-js">_.isFunction(object)
 
-$compile(&#39;$if{ foo === &quot;bar&quot; }gogogo{:}whoops{/}&#39;)(data)
-// returns &#39;gogogo&#39;
+_.isObject(object)
 
-compile(&#39;$each{ item, key in map }[${foo}:${key}:${item}]{/}&#39;)(data);
-// returns &#39;[bar:hi:all][bar:bye:nobody]&#39;
+_.isString(object)
+
+_.isArray(object)
+
+_.isNumber(object)
+
+_.key()
+
+_.keys(object)  // Object.keys() alias
+
+_.extend(object, source)
 </code></pre>
 </div>
 					</article>

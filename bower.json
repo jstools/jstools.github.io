@@ -14,13 +14,15 @@
     "tests"
   ],
   "dependencies": {
-    "jstools-fn": "latest",
-    "jstools-jqlite": "latest",
-    "jq-plugin": "latest",
-    "jstools-compile": "latest",
+    "jstools-fn": "*",
+    "jstools-jqlite": "*",
+    "jq-plugin": "*",
+    "jstools-compile": "*",
     "jstools-events": "*",
     "jstools-promise": "*",
     "jstools-cookie": "*",
-    "jstools-http": "*"
+    "jstools-http": "*",
+    "jstools-scope": "*",
+    "jstools-utils": "*"
   }
 }
