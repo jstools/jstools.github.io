@@ -60,13 +60,18 @@
 					</nav>
 
 					<article class="article">
-						$if{dependence}
-						<a class="pull-right btn btn-link" href="${githubUrl}" target="_blank">
-							<span class="icon icon-github"></span>
-							<span>Github</span>
-						</a>
-						{/}
 						<div class="readme markdown-body">${article}</div>
+						$if{dependence}
+						<br/>
+						<hr/>
+						<div class="text-center">
+							<a class="btn btn-link" href="${githubUrl}" target="_blank">
+								<span>project in </span>
+								<span class="icon icon-github"></span>
+								<span>Github</span>
+							</a>
+						</div>
+						{/}
 					</article>
 
 				</div>
