@@ -2138,7 +2138,7 @@ body.show-nav #header + section {
 #libs-nav a {
   display: block;
   padding: 0 1rem;
-  line-height: 2.5rem;
+  line-height: 2.2rem;
   text-decoration: none;
 }
 #libs-nav > ul > li > a {
