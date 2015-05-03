@@ -2108,9 +2108,9 @@ body.show-nav #header + section {
   color: black;
 }
 #header .subtitle {
-  font-size: 1.25rem;
+  font-size: 1.04166667rem;
   line-height: 2.5rem;
-  color: #444;
+  color: #777;
 }
 @media all and ( max-width: 768px ) {
   #header .subtitle {
@@ -2126,6 +2126,11 @@ body.show-nav #header + section {
     line-height: 2.5rem;
   }
   #header .github-follow .text {
+    display: none;
+  }
+}
+@media all and ( max-width: 480px ) {
+  #header .github-follow .btn-text {
     display: none;
   }
 }

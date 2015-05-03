@@ -48,9 +48,9 @@
 		color: black;
 	}
 	.subtitle {
-		font-size: @logo-size/4;
+		font-size: @logo-size/4.8;
 		line-height: @logo-size/2;
-		color: #444;
+		color: #777;
 
 		@media all and @small-screen {
 			display: none;
@@ -64,6 +64,12 @@
 		@media all and @small-screen {
 			line-height: @logo-size-sm;
 			.text {
+				display: none;
+			}
+		}
+
+		@media all and @xsmall-screen {
+			.btn-text {
 				display: none;
 			}
 		}
