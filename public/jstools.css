@@ -2004,8 +2004,7 @@ html {
 }
 @media all and ( min-width: 960px ) {
   .container {
-    max-width: 960px;
-    width: 80%;
+    width: 960px;
   }
 }
 .height-wrapper {
@@ -2025,32 +2024,6 @@ body.show-nav:before {
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 500;
-}
-#libs-nav {
-  width: 13rem;
-}
-@media all and ( max-width: 768px ) {
-  #libs-nav {
-    position: fixed;
-    left: -13rem;
-    top: 3.5rem;
-    bottom: 0;
-    background-color: white;
-    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    overflow: auto;
-    transition: left 0.4s ease;
-  }
-  body.show-nav #libs-nav {
-    left: 0;
-  }
-}
-@media all and ( min-width: 768px ) {
-  #libs-nav {
-    float: left;
-    position: sticky;
-    top: 1rem;
-  }
 }
 article.article {
   padding: 0 1rem;
@@ -2132,6 +2105,32 @@ body.show-nav #header + section {
 @media all and ( max-width: 480px ) {
   #header .github-follow .btn-text {
     display: none;
+  }
+}
+#libs-nav {
+  width: 13rem;
+}
+@media all and ( max-width: 768px ) {
+  #libs-nav {
+    position: fixed;
+    left: -13rem;
+    top: 3.5rem;
+    bottom: 0;
+    background-color: white;
+    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow: auto;
+    transition: left 0.4s ease;
+  }
+  body.show-nav #libs-nav {
+    left: 0;
+  }
+}
+@media all and ( min-width: 768px ) {
+  #libs-nav {
+    float: left;
+    position: sticky;
+    top: 1rem;
   }
 }
 #libs-nav ul,
