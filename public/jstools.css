@@ -2137,7 +2137,8 @@ body.show-nav #header + section {
 }
 #libs-nav a {
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 0 1rem;
+  line-height: 2.5rem;
   text-decoration: none;
 }
 #libs-nav > ul > li > a {
@@ -2153,9 +2154,6 @@ body.show-nav #header + section {
 }
 #libs-nav > ul > li > a.active {
   background-color: royalblue;
-}
-#libs-nav ul ul li {
-  padding-left: 1rem;
 }
 #libs-nav ul ul li.active > a {
   color: royalblue;
