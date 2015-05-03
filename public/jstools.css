@@ -2168,6 +2168,7 @@ body.show-nav #header + section {
   height: 2rem;
   border-top: 1px solid #ddd;
   font-size: 85%;
+  padding: 0 1rem;
 }
 #footer .text-wrapper {
   line-height: 2em;
