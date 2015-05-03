@@ -15,9 +15,12 @@
     });
 
     $('#header .logo-link').click(function (e) {
-      e.stopPropagation();
-      e.preventDefault();
-      jBody.addClass('show-nav');
+
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        e.stopPropagation();
+        e.preventDefault();
+        jBody.addClass('show-nav');
+      }
     });
 
   });
