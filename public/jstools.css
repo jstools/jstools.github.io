@@ -2050,14 +2050,9 @@ article.article {
   }
 }
 #header {
-  padding: 0.5rem 0;
+  padding: 0.5rem;
   background: #eee;
   border-bottom: 1px solid #ddd;
-}
-@media all and ( max-width: 768px ) {
-  #header {
-    padding: 0.5rem;
-  }
 }
 #header a {
   text-decoration: none;
