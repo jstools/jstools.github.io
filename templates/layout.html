@@ -8,15 +8,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 		<link href="${host}/public/jstools.css" rel="stylesheet">
-
-		<script src="${host}/public/jEngine.js"></script>
-
-		$if{debug}<script src="//localhost:54321/livereload.js"></script>{/}
-
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
-		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
 
-		<script src="${host}/public/assets/init-site.js"></script>
 	</head>
 	<body>
 		<div class="height-wrapper">
@@ -91,5 +84,10 @@
 				</div>
 			</div>
 		</footer>
+
+		$if{debug}<script src="//localhost:54321/livereload.js"></script>{/}
+		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+		<script src="${host}/public/jEngine.js"></script>
+		<script src="${host}/public/assets/init-site.js"></script>
 	</body>
 </html>
