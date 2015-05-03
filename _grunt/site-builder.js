@@ -50,7 +50,11 @@ module.exports = function (options) {
 
   var layout = template('layout');
 
-  grunt.file.write('index.html', layout(env) );
+  grunt.file.write('index.html', layout(env.$$new({
+    article: template('welcome')({
+      welcome: marked( grunt.file.read('templates/welcome.md') )
+    })
+  })) );
   // grunt.file.write('page/jengine/index.html', layout(env) );
 
   bowerDependencies.each(['README.md', 'package.json'], function (dependence, readme, pkg) {

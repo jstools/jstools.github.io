@@ -14,9 +14,13 @@ body {
 }
 
 .container {
-	width: 80%;
-	max-width: 1200px;
+	width: 100%;
 	margin: 0 auto;
+
+	@media all and @large-screen {
+		max-width: @wp-lg;
+		width: 80%;
+	}
 }
 
 .height-wrapper {
@@ -24,15 +28,40 @@ body {
 	padding-bottom: @footer-height;
 }
 
-#libs-nav {
-	float: left;
-	position: sticky;
-	top: 1rem;
+body.show-nav {
+	overflow: hidden;
+}
 
+#libs-nav {
 	width: @libs-nav-width;
+
+	@media all and @small-screen {
+		position: fixed;
+		left: -@libs-nav-width;
+		// top: @logo-size-sm + 1rem;
+		top: 0;
+		bottom: 0;
+		background-color: white;
+		box-shadow: 0 0 0.2rem rgba(0,0,0,0.5);
+		z-index: 1000;
+		overflow: auto;
+		transition: left 0.4s ease;
+
+		body.show-nav & {
+			left: 0;
+		}
+	}
+	@media all and @normal-screen {
+		float: left;
+		position: sticky;
+		top: 1rem;
+	}
 }
 
 article.article {
-	margin-left: @libs-nav-width;
 	padding: 0 1rem;
+
+	@media all and @normal-screen {
+		margin-left: @libs-nav-width;
+	}
 }

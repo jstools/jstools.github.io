@@ -1,6 +1,10 @@
 
 #header {
 	padding: 0.5rem 0;
+	@media all and @small-screen {
+		padding: 0.5rem;
+	}
+
 	background: #eee;
 	border-bottom: 1px solid #ddd;
 
@@ -17,10 +21,18 @@
 		height: @logo-size;
 		vertical-align: middle;
 		float: left;
+
+		@media all and @small-screen {
+			width: @logo-size-sm;
+			height: @logo-size-sm;
+		}
 	}
 
 	.title-wrapper {
 		margin-left: @logo-size;
+		@media all and @small-screen {
+			margin-left: @logo-size-sm;
+		}
 		padding: 0 1rem;
 	}
 	.title {
@@ -32,10 +44,21 @@
 		font-size: @logo-size/4;
 		line-height: @logo-size/2;
 		color: #444;
+
+		@media all and @small-screen {
+			display: none;
+		}
 	}
 
 	.github-follow {
 		float: right;
 		line-height: @logo-size;
+
+		@media all and @small-screen {
+			line-height: @logo-size-sm;
+			.text {
+				display: none;
+			}
+		}
 	}
 }

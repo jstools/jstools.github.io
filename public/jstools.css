@@ -1999,28 +1999,65 @@ html {
   font-family: DejaVuSans;
 }
 .container {
-  width: 80%;
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
+}
+@media all and ( min-width: 960px ) {
+  .container {
+    max-width: 960px;
+    width: 80%;
+  }
 }
 .height-wrapper {
   min-height: 100%;
   padding-bottom: 2rem;
 }
+body.show-nav {
+  overflow: hidden;
+}
 #libs-nav {
-  float: left;
-  position: sticky;
-  top: 1rem;
   width: 13rem;
 }
+@media all and ( max-width: 768px ) {
+  #libs-nav {
+    position: fixed;
+    left: -13rem;
+    top: 0;
+    bottom: 0;
+    background-color: white;
+    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow: auto;
+    transition: left 0.4s ease;
+  }
+  body.show-nav #libs-nav {
+    left: 0;
+  }
+}
+@media all and ( min-width: 768px ) {
+  #libs-nav {
+    float: left;
+    position: sticky;
+    top: 1rem;
+  }
+}
 article.article {
-  margin-left: 13rem;
   padding: 0 1rem;
+}
+@media all and ( min-width: 768px ) {
+  article.article {
+    margin-left: 13rem;
+  }
 }
 #header {
   padding: 0.5rem 0;
   background: #eee;
   border-bottom: 1px solid #ddd;
+}
+@media all and ( max-width: 768px ) {
+  #header {
+    padding: 0.5rem;
+  }
 }
 #header a {
   text-decoration: none;
@@ -2034,9 +2071,20 @@ article.article {
   vertical-align: middle;
   float: left;
 }
+@media all and ( max-width: 768px ) {
+  #header img.logo {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
 #header .title-wrapper {
   margin-left: 5rem;
   padding: 0 1rem;
+}
+@media all and ( max-width: 768px ) {
+  #header .title-wrapper {
+    margin-left: 2.5rem;
+  }
 }
 #header .title {
   font-size: 1.92307692rem;
@@ -2048,9 +2096,22 @@ article.article {
   line-height: 2.5rem;
   color: #444;
 }
+@media all and ( max-width: 768px ) {
+  #header .subtitle {
+    display: none;
+  }
+}
 #header .github-follow {
   float: right;
   line-height: 5rem;
+}
+@media all and ( max-width: 768px ) {
+  #header .github-follow {
+    line-height: 2.5rem;
+  }
+  #header .github-follow .text {
+    display: none;
+  }
 }
 #libs-nav ul,
 #libs-nav li {

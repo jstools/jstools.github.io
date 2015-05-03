@@ -1,4 +1,16 @@
 
+@wp-xl: 1200px;
+@wp-lg: 960px;
+@wp-md: 768px;
+@wp-sm: 480px;
+
+@xlarge-screen: ~"( min-width: @{wp-xl} )";
+@large-screen: ~"( min-width: @{wp-lg} )";
+@medium-screen: ~"( min-width: @{wp-sm} ) and ( max-width: @{wp-lg} )";
+@normal-screen: ~"( min-width: @{wp-md} )";
+@small-screen: ~"( max-width: @{wp-md} )";
+
+
 @rem: 16px;
 
 @font-size-base: @rem;
@@ -6,6 +18,7 @@
 @fonts-path: '/public/assets/fonts';
 
 @logo-size: 5rem;
+@logo-size-sm: @logo-size*0.5;
 
 @footer-height: 2rem;
 
