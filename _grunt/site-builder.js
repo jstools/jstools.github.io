@@ -36,6 +36,9 @@ var env = new Scope({
   }
 });
 env.host = env.pkg.homepage;
+env.jstools = Object.keys(env.bower.devDependencies).filter(function (value) {
+  return value !== 'jengine';
+});
 
 module.exports = function (options) {
   options = options || {};
@@ -48,13 +51,23 @@ module.exports = function (options) {
   var layout = template('layout');
 
   grunt.file.write('index.html', layout(env) );
-  grunt.file.write('page/jengine/index.html', layout(env) );
+  // grunt.file.write('page/jengine/index.html', layout(env) );
 
   bowerDependencies.each(['README.md', 'package.json'], function (dependence, readme, pkg) {
+    var pagePath = ( dependence === 'jengine' ) ?
+        joinPath( 'page/jengine', 'index.html' ) :
+        joinPath( 'page/jengine', dependence, 'index.html' );
+
     grunt.file.write(
-      joinPath( 'page/jengine', dependence, 'index.html' ),
-      layout(env.$$new({ dependence: dependence, article: marked(readme), githubUrl: pkg.homepage }))
+      pagePath,
+      layout(env.$$new({
+        dependence: dependence,
+        article: marked(readme),
+        githubUrl: pkg.homepage
+      }))
     );
+  }, {
+    src: 'devDependencies'
   });
   // console.log( template('layout')(env), bower );
 };

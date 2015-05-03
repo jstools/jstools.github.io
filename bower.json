@@ -13,7 +13,7 @@
     "test",
     "tests"
   ],
-  "dependencies": {
+  "devDependencies": {
     "jstools-fn": "*",
     "jstools-jqlite": "*",
     "jq-plugin": "*",
@@ -23,6 +23,7 @@
     "jstools-cookie": "*",
     "jstools-http": "*",
     "jstools-scope": "*",
-    "jstools-utils": "*"
+    "jstools-utils": "*",
+    "jengine": "~0.1.24"
   }
 }

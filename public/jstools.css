@@ -2074,6 +2074,9 @@ article.article {
 #libs-nav > ul > li > a:active {
   background-color: #222;
 }
+#libs-nav > ul > li > a.active {
+  background-color: royalblue;
+}
 #libs-nav ul ul li {
   padding-left: 1rem;
 }

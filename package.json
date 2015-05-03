@@ -41,8 +41,5 @@
     "marked": "jgermade/marked#master",
     "package-manager": "0.0.11",
     "time-grunt": "^1.1.1"
-  },
-  "dependencies": {
-    "jengine": "^0.1.23"
   }
 }
