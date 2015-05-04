@@ -2078,15 +2078,15 @@ article.article {
   }
 }
 #header img.logo {
-  width: 5rem;
-  height: 5rem;
+  width: 2.5rem;
+  height: 2.5rem;
   vertical-align: middle;
   float: left;
 }
-@media all and ( max-width: 768px ) {
+@media all and ( min-width: 768px ) {
   #header img.logo {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 5rem;
+    height: 5rem;
   }
 }
 #header .title-wrapper {
@@ -2098,14 +2098,17 @@ article.article {
     padding: 0 0.5rem;
     line-height: 3.5rem;
   }
-  #header .title-wrapper h1 {
-    line-height: 3.5rem;
-  }
 }
 #header .title {
-  font-size: 1.92307692rem;
-  line-height: 2.5rem;
+  line-height: 3.5rem;
+  font-size: 1.66666667rem;
   color: black;
+}
+@media all and ( min-width: 768px ) {
+  #header .title {
+    font-size: 1.92307692rem;
+    line-height: 2.5rem;
+  }
 }
 #header .subtitle {
   font-size: 1.04166667rem;

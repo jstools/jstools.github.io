@@ -44,33 +44,33 @@
 	}
 
 	img.logo {
-		width: @logo-size;
-		height: @logo-size;
+		width: @logo-size-sm;
+		height: @logo-size-sm;
 		vertical-align: middle;
 		float: left;
 
-		@media all and @small-screen {
-			width: @logo-size-sm;
-			height: @logo-size-sm;
+		@media all and @normal-screen {
+			width: @logo-size;
+			height: @logo-size;
 		}
 	}
 
 	.title-wrapper {
 		display: inline-block;
 		padding: 0.5rem 1rem;
-		// margin-left: @logo-size;
 		@media all and @small-screen {
 			padding: 0 0.5rem;
 			line-height: @header-height-sm;
-			h1 {
-				line-height: @header-height-sm;
-			}
 		}
 	}
 	.title {
-		font-size: @logo-size/2.6;
-		line-height: @logo-size/2;
+		line-height: @header-height-sm;
+		font-size: @logo-size/3;
 		color: black;
+		@media all and @normal-screen {
+			font-size: @logo-size/2.6;
+			line-height: @logo-size/2;
+		}
 	}
 	.subtitle {
 		font-size: @logo-size/4.8;
