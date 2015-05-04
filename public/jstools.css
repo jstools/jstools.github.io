@@ -2036,11 +2036,14 @@ article.article {
   }
 }
 #header {
-  padding: 0.5rem;
+  padding: 0 0.5rem;
   background: #eee;
   border-bottom: 1px solid #ddd;
 }
 @media all and ( max-width: 768px ) {
+  #header {
+    padding: 0 0.5rem 0 0;
+  }
   body.show-nav #header {
     position: fixed;
     top: 0;
@@ -2056,7 +2059,26 @@ article.article {
   text-decoration: none;
 }
 #header a:hover .title {
-  text-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.5);
+  text-decoration: underline;
+}
+#header a.logo-link {
+  display: inline-block;
+  width: 6rem;
+  height: 6rem;
+  vertical-align: top;
+  padding: 0.5rem;
+}
+@media all and ( max-width: 768px ) {
+  #header a.logo-link {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  #header a.logo-link:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  #header a.logo-link:active {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
 }
 #header img.logo {
   width: 5rem;
@@ -2071,12 +2093,16 @@ article.article {
   }
 }
 #header .title-wrapper {
-  margin-left: 5rem;
-  padding: 0 1rem;
+  display: inline-block;
+  padding: 0.5rem 1rem;
 }
 @media all and ( max-width: 768px ) {
   #header .title-wrapper {
-    margin-left: 2.5rem;
+    padding: 0 0.5rem;
+    line-height: 3.5rem;
+  }
+  #header .title-wrapper h1 {
+    line-height: 3.5rem;
   }
 }
 #header .title {
@@ -2100,6 +2126,7 @@ article.article {
 }
 @media all and ( max-width: 768px ) {
   #header .github-follow {
+    padding: 0.5rem 0;
     line-height: 2.5rem;
   }
   #header .github-follow .text {

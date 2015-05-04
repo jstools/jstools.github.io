@@ -1,18 +1,19 @@
 
 #header {
-	padding: 0.5rem;
+	padding: 0 0.5rem;
 
 	background: #eee;
 	border-bottom: 1px solid #ddd;
 
 	@media all and @small-screen {
+		padding: 0 0.5rem 0 0;
 		body.show-nav & {
 			position: fixed;
 			top: 0; left: 0; right: 0;
 			z-index: 2000;
 
 			& + section {
-				margin-top: calc(~"1px + "@header-height);
+				margin-top: calc(~"1px + "@header-height-sm);
 			}
 		}
 	}
@@ -21,7 +22,27 @@
 		text-decoration: none;
 
 		&:hover .title {
-			text-shadow: 0 0 0.1rem rgba(0,0,0,0.5);
+			text-decoration: underline;
+		}
+	}
+
+	a.logo-link {
+		display: inline-block;
+		width: @header-height;
+		height: @header-height;
+		vertical-align: top;
+		padding: 0.5rem;
+
+		@media all and @small-screen {
+			width: @header-height-sm;
+			height: @header-height-sm;
+
+			&:hover {
+				background-color: rgba(0,0,0,0.1);
+			}
+			&:active {
+				background-color: rgba(0,0,0,0.2);
+			}
 		}
 	}
 
@@ -38,11 +59,16 @@
 	}
 
 	.title-wrapper {
-		margin-left: @logo-size;
+		display: inline-block;
+		padding: 0.5rem 1rem;
+		// margin-left: @logo-size;
 		@media all and @small-screen {
-			margin-left: @logo-size-sm;
+			padding: 0 0.5rem;
+			line-height: @header-height-sm;
+			h1 {
+				line-height: @header-height-sm;
+			}
 		}
-		padding: 0 1rem;
 	}
 	.title {
 		font-size: @logo-size/2.6;
@@ -64,6 +90,7 @@
 		line-height: @logo-size;
 
 		@media all and @small-screen {
+			padding: 0.5rem 0;
 			line-height: @logo-size-sm;
 			.text {
 				display: none;
