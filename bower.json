@@ -24,6 +24,6 @@
     "jstools-http": "*",
     "jstools-scope": "*",
     "jstools-utils": "*",
-    "jengine": "~0.1.24"
+    "jengine": "*"
   }
 }

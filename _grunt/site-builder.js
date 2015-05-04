@@ -55,7 +55,8 @@ module.exports = function (options) {
       welcome: marked( grunt.file.read('templates/welcome.md') )
     })
   })) );
-  // grunt.file.write('page/jengine/index.html', layout(env) );
+
+  grunt.file.write('public/assets/jEngine.min.js', grunt.file.read( joinPath( bowerDependencies.dependenciesPath ,'jengine', 'jEngine.min.js' ) ) );
 
   bowerDependencies.each(['README.md', 'package.json'], function (dependence, readme, pkg) {
     var pagePath = ( dependence === 'jengine' ) ?
