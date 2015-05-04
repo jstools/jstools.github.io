@@ -5,13 +5,15 @@
 	background: #eee;
 	border-bottom: 1px solid #ddd;
 
-	body.show-nav & {
-		position: fixed;
-		top: 0; left: 0; right: 0;
-		z-index: 2000;
+	@media all and @small-screen {
+		body.show-nav & {
+			position: fixed;
+			top: 0; left: 0; right: 0;
+			z-index: 2000;
 
-		& + section {
-			margin-top: @logo-size-sm + 1rem;
+			& + section {
+				margin-top: calc(~"1px + "@header-height);
+			}
 		}
 	}
 

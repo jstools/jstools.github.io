@@ -2011,19 +2011,21 @@ html {
   min-height: 100%;
   padding-bottom: 2rem;
 }
-body.show-nav {
-  overflow: hidden;
-}
-body.show-nav:before {
-  position: fixed;
-  content: '';
-  display: block;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 500;
+@media all and ( max-width: 768px ) {
+  body.show-nav {
+    overflow: hidden;
+  }
+  body.show-nav:before {
+    position: fixed;
+    content: '';
+    display: block;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 500;
+  }
 }
 article.article {
   padding: 0 1rem;
@@ -2038,15 +2040,17 @@ article.article {
   background: #eee;
   border-bottom: 1px solid #ddd;
 }
-body.show-nav #header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 2000;
-}
-body.show-nav #header + section {
-  margin-top: 3.5rem;
+@media all and ( max-width: 768px ) {
+  body.show-nav #header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2000;
+  }
+  body.show-nav #header + section {
+    margin-top: calc(1px +  3.5rem);
+  }
 }
 #header a {
   text-decoration: none;
@@ -2114,7 +2118,7 @@ body.show-nav #header + section {
   #libs-nav {
     position: fixed;
     left: -13rem;
-    top: 3.5rem;
+    top: calc(1px +  3.5rem);
     bottom: 0;
     background-color: white;
     box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.5);
