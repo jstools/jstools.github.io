@@ -2073,11 +2073,8 @@ article.article {
     width: 3.5rem;
     height: 3.5rem;
   }
-  #header a.logo-link:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-  }
   #header a.logo-link:active {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
   }
 }
 #header img.logo {
