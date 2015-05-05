@@ -94,13 +94,9 @@ module.exports = function(grunt) {
 		require('./_grunt/site-builder.js')();
 	});
 
-	grunt.registerTask('copy-jengine', function () {
-		grunt.file.copy('node_modules/jengine/jEngine.js', 'public/jEngine.js');
-	});
+  grunt.registerTask('dev', ['clean', 'copy:assets', 'build-pages:dev', 'less', 'fileserver', 'watch']);
 
-  grunt.registerTask('dev', ['clean', 'copy:assets', 'copy-jengine', 'build-pages:dev', 'less', 'fileserver', 'watch']);
-
-  grunt.registerTask('build', ['clean', 'copy:assets', 'copy-jengine', 'build-pages:dist', 'less']);
+  grunt.registerTask('build', ['clean', 'copy:assets', 'build-pages:dist', 'less']);
 
   // Default task(s).
   grunt.registerTask('default', ['build']);
