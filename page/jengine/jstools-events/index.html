@@ -105,11 +105,11 @@
 <h2 id="usage">Usage</h2>
 <pre><code class="lang-js">var obj = new Events();
 
-obj.on(&#39;foo&#39;, function () {
+obj.$$on(&#39;foo&#39;, function () {
   flag = true;
 });
 
-obj.trigger(&#39;foo&#39;);
+obj.$$trigger(&#39;foo&#39;);
 </code></pre>
 <h2 id="angularjs-module">AngularJS Module</h2>
 <pre><code class="lang-js">angular.module(&#39;myApp&#39;, [&#39;jstools.events&#39;])
@@ -156,8 +156,9 @@ obj.trigger(&#39;foo&#39;);
 		</footer>
 
 		
-		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+		<script src="https://jstools.github.io/public/assets/fastclick.min.js"></script>
 		<script src="https://jstools.github.io/public/assets/jEngine.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
 		<script src="https://jstools.github.io/public/assets/init-site.js"></script>
 	</body>
 </html>

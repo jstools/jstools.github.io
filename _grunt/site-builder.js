@@ -1,6 +1,8 @@
 var grunt = require('grunt'),
     compile = require('jstools-template').compile,
     Scope = require('jstools-scope'),
+    UglifyJS = require("uglify-js"),
+
     joinPath = require('path').join,
     cwdPath = function(path) {
       var paths = [process.cwd()];
@@ -57,6 +59,7 @@ module.exports = function (options) {
   })) );
 
   grunt.file.write('public/assets/jEngine.min.js', grunt.file.read( joinPath( bowerDependencies.dependenciesPath ,'jengine', 'jEngine.min.js' ) ) );
+  grunt.file.write('public/assets/fastclick.min.js', UglifyJS.minify( joinPath( bowerDependencies.dependenciesPath ,'fastclick', 'lib/fastclick.js' ) ).code );
 
   bowerDependencies.each(['README.md', 'package.json'], function (dependence, readme, pkg) {
     var pagePath = ( dependence === 'jengine' ) ?

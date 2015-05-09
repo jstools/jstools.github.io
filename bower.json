@@ -25,5 +25,8 @@
     "jstools-utils": "*",
     "jstools-template": "*",
     "jengine": "*"
+  },
+  "dependencies": {
+    "fastclick": "~1.0.6"
   }
 }
