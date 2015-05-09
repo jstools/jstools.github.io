@@ -119,10 +119,10 @@
   }
 };
 
-$template(&#39;$if{ foo === &quot;bar&quot; }gogogo{:}whoops{/}&#39;)(data)
+$template.compile(&#39;$if{ foo === &quot;bar&quot; }gogogo{:}whoops{/}&#39;)(data)
 // returns &#39;gogogo&#39;
 
-$template(&#39;$each{ item, key in map }[${foo}:${key}:${item}]{/}&#39;)(data);
+$template.compile(&#39;$each{ item, key in map }[${foo}:${key}:${item}]{/}&#39;)(data);
 // returns &#39;[bar:hi:all][bar:bye:nobody]&#39;
 </code></pre>
 </div>

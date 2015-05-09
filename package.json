@@ -35,11 +35,12 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-fileserver": "^0.1.30",
     "grunt-notify": "^0.4.1",
-    "jstools-template": "^0.1.0",
     "jstools-scope": "^0.0.9",
+    "jstools-template": "^0.1.0",
     "load-grunt-tasks": "^3.1.0",
     "marked": "jgermade/marked#master",
     "package-manager": "0.0.11",
-    "time-grunt": "^1.1.1"
+    "time-grunt": "^1.1.1",
+    "uglify-js": "^2.4.21"
   }
 }
