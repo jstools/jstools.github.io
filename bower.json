@@ -17,13 +17,13 @@
     "jstools-fn": "*",
     "jstools-jqlite": "*",
     "jq-plugin": "*",
-    "jstools-compile": "*",
     "jstools-events": "*",
     "jstools-promise": "*",
     "jstools-cookie": "*",
     "jstools-http": "*",
     "jstools-scope": "*",
     "jstools-utils": "*",
+    "jstools-template": "*",
     "jengine": "*"
   }
 }

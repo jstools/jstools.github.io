@@ -58,10 +58,6 @@
 										<a href="/page/jengine/jq-plugin/">jq-plugin</a>
 									</li>
                   
-									<li class="active">
-										<a href="/page/jengine/jstools-compile/">compile</a>
-									</li>
-                  
 									<li class="">
 										<a href="/page/jengine/jstools-events/">events</a>
 									</li>
@@ -86,21 +82,25 @@
 										<a href="/page/jengine/jstools-utils/">utils</a>
 									</li>
                   
+									<li class="active">
+										<a href="/page/jengine/jstools-template/">template</a>
+									</li>
+                  
 								</ul>
 							</li>
 						</ul>
 					</nav>
 
 					<article class="article">
-						<div class="readme markdown-body"><h1 id="jengine-compile-wercker-status-https-app-wercker-com-status-5cf7af073a466325d96ad751d99761c5-s-wercker-status-https-app-wercker-com-project-bykey-5cf7af073a466325d96ad751d99761c5-">jEngine: $compile <a href="https://app.wercker.com/project/bykey/5cf7af073a466325d96ad751d99761c5"><img src="https://app.wercker.com/status/5cf7af073a466325d96ad751d99761c5/s" alt="wercker status" title="wercker status"></a></h1>
-<p><a href="http://badge.fury.io/bo/jstools-compile"><img src="https://badge.fury.io/bo/jstools-compile.svg" alt="Bower version"></a>
-<a href="http://badge.fury.io/js/jstools-compile"><img src="https://badge.fury.io/js/jstools-compile.svg" alt="npm version"></a>
-<a href="https://travis-ci.org/jstools/compile"><img src="https://travis-ci.org/jstools/compile.svg?branch=master" alt="Build Status"></a></p>
+						<div class="readme markdown-body"><h1 id="jengine-template-wercker-status-https-app-wercker-com-status-514973e1d34c9367cf40985a577c9c2a-s-wercker-status-https-app-wercker-com-project-bykey-514973e1d34c9367cf40985a577c9c2a-">jEngine: $template <a href="https://app.wercker.com/project/bykey/514973e1d34c9367cf40985a577c9c2a"><img src="https://app.wercker.com/status/514973e1d34c9367cf40985a577c9c2a/s" alt="wercker status" title="wercker status"></a></h1>
+<p><a href="http://badge.fury.io/bo/jstools-template"><img src="https://badge.fury.io/bo/jstools-template.svg" alt="Bower version"></a>
+<a href="http://badge.fury.io/js/jstools-template"><img src="https://badge.fury.io/js/jstools-template.svg" alt="npm version"></a>
+<a href="https://travis-ci.org/jstools/template"><img src="https://travis-ci.org/jstools/template.svg?branch=master" alt="Build Status"></a></p>
 <h2 id="installation">Installation</h2>
-<pre><code class="lang-sh">npm install jstools-compile --save
+<pre><code class="lang-sh">npm install jstools-template --save
 </code></pre>
 <p>  or</p>
-<pre><code class="lang-sh">bower install jstools-compile --save
+<pre><code class="lang-sh">bower install jstools-template --save
 </code></pre>
 <h2 id="usage">Usage</h2>
 <pre><code class="lang-js">var data = {
@@ -119,10 +119,10 @@
   }
 };
 
-$compile(&#39;$if{ foo === &quot;bar&quot; }gogogo{:}whoops{/}&#39;)(data)
+$template(&#39;$if{ foo === &quot;bar&quot; }gogogo{:}whoops{/}&#39;)(data)
 // returns &#39;gogogo&#39;
 
-compile(&#39;$each{ item, key in map }[${foo}:${key}:${item}]{/}&#39;)(data);
+$template(&#39;$each{ item, key in map }[${foo}:${key}:${item}]{/}&#39;)(data);
 // returns &#39;[bar:hi:all][bar:bye:nobody]&#39;
 </code></pre>
 </div>
@@ -130,7 +130,7 @@ compile(&#39;$each{ item, key in map }[${foo}:${key}:${item}]{/}&#39;)(data);
 						<br/>
 						<hr/>
 						<div class="text-center">
-							<a class="btn btn-link" href="https://github.com/jstools/compile" target="_blank">
+							<a class="btn btn-link" href="https://github.com/jstools/template" target="_blank">
 								<span>code in </span>
 								<span class="icon icon-github"></span>
 								<span>Github</span>

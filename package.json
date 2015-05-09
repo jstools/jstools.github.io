@@ -35,7 +35,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-fileserver": "^0.1.30",
     "grunt-notify": "^0.4.1",
-    "jstools-compile": "^0.1.5",
+    "jstools-template": "^0.1.0",
     "jstools-scope": "^0.0.9",
     "load-grunt-tasks": "^3.1.0",
     "marked": "jgermade/marked#master",

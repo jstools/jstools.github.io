@@ -1,5 +1,5 @@
 var grunt = require('grunt'),
-    compile = require('jstools-compile'),
+    compile = require('jstools-template').compile,
     Scope = require('jstools-scope'),
     joinPath = require('path').join,
     cwdPath = function(path) {

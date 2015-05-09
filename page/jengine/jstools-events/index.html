@@ -58,10 +58,6 @@
 										<a href="/page/jengine/jq-plugin/">jq-plugin</a>
 									</li>
                   
-									<li class="">
-										<a href="/page/jengine/jstools-compile/">compile</a>
-									</li>
-                  
 									<li class="active">
 										<a href="/page/jengine/jstools-events/">events</a>
 									</li>
@@ -86,6 +82,10 @@
 										<a href="/page/jengine/jstools-utils/">utils</a>
 									</li>
                   
+									<li class="">
+										<a href="/page/jengine/jstools-template/">template</a>
+									</li>
+                  
 								</ul>
 							</li>
 						</ul>
@@ -100,7 +100,7 @@
 <pre><code class="lang-sh">npm install jstools-events --save
 </code></pre>
 <p>or</p>
-<pre><code class="lang-sh">bower install jn-events --save
+<pre><code class="lang-sh">bower install jstools-events --save
 </code></pre>
 <h2 id="usage">Usage</h2>
 <pre><code class="lang-js">var obj = new Events();
@@ -110,6 +110,21 @@ obj.on(&#39;foo&#39;, function () {
 });
 
 obj.trigger(&#39;foo&#39;);
+</code></pre>
+<h2 id="angularjs-module">AngularJS Module</h2>
+<pre><code class="lang-js">angular.module(&#39;myApp&#39;, [&#39;jstools.events&#39;])
+
+  .controller(&#39;AppCtrl&#39;, [&#39;$scope&#39;, &#39;Events&#39;, function ($scope, Events) {
+
+    var obj = new Events();
+
+    obj.$$on(&#39;foo&#39;, function () {
+      flag = true;
+    });
+
+    obj.$$trigger(&#39;foo&#39;);
+
+  }]);
 </code></pre>
 </div>
 						

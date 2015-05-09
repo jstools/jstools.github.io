@@ -59,10 +59,6 @@
 									</li>
                   
 									<li class="">
-										<a href="/page/jengine/jstools-compile/">compile</a>
-									</li>
-                  
-									<li class="">
 										<a href="/page/jengine/jstools-events/">events</a>
 									</li>
                   
@@ -86,6 +82,10 @@
 										<a href="/page/jengine/jstools-utils/">utils</a>
 									</li>
                   
+									<li class="">
+										<a href="/page/jengine/jstools-template/">template</a>
+									</li>
+                  
 								</ul>
 							</li>
 						</ul>
@@ -101,18 +101,18 @@
 <pre><code class="lang-sh">bower install jstools-cookie --save
 </code></pre>
 <h2 id="quick-usage">Quick Usage</h2>
-<pre><code class="lang-js">cookie.set(cookieName, cookieValue)
-cookie.set(&#39;foo&#39;, &#39;var&#39;)
+<pre><code class="lang-js">$cookie.set(cookieName, cookieValue)
+$cookie.set(&#39;foo&#39;, &#39;var&#39;)
 
-cookie.get(cookieName);
-cookie.get(&#39;foo&#39;)
+$cookie.get(cookieName);
+$cookie.get(&#39;foo&#39;)
 // returns &#39;bar&#39;
 
-cookie.remove(cookieName);
-cookie.remove(&#39;foo&#39;);
+$cookie.remove(cookieName);
+$cookie.remove(&#39;foo&#39;);
 </code></pre>
 <h2 id="full-usage">Full Usage</h2>
-<pre><code class="lang-js">cookie.set(cookieName, cookieValue, &#39;Fri, 31 Dec 9999 23:59:59 GMT&#39; {UTC Format}, path, domain, secure)
+<pre><code class="lang-js">$cookie.set(cookieName, cookieValue, &#39;Fri, 31 Dec 9999 23:59:59 GMT&#39; {UTC Format}, path, domain, secure)
 </code></pre>
 </div>
 						
