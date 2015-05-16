@@ -3,11 +3,11 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>jsTools</title>
-		<link rel="shortcut icon" type="image/x-icon" href="https://jstools.github.io/public/assets/images/jstools.png" />
+		<link rel="shortcut icon" type="image/x-icon" href="//localhost:8080/public/assets/images/jstools.png" />
 
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<link href="https://jstools.github.io/public/jstools.css" rel="stylesheet">
+		<link href="//localhost:8080/public/jstools.css" rel="stylesheet">
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
 
 	</head>
@@ -66,7 +66,7 @@
 										<a href="/jengine/promise/">promise</a>
 									</li>
                   
-									<li class="">
+									<li class="active">
 										<a href="/jengine/cookie/">cookie</a>
 									</li>
                   
@@ -92,19 +92,39 @@
 					</nav>
 
 					<article class="article">
-						<div class="readme markdown-body">
-<h1 id="jstools">jsTools</h1>
-<blockquote>
-<p>jsTools aims to be a stable collection of js tools for browser and web build (nodejs)</p>
-</blockquote>
-<p><a href="page/jengine/">jEngine</a></p>
+						<div class="readme markdown-body"><h1 id="jengine-cookie">jEngine: $cookie</h1>
+<p><a href="http://badge.fury.io/bo/jengine-cookie"><img src="https://badge.fury.io/bo/jengine-cookie.svg" alt="Bower version"></a></p>
+<h2 id="installation">Installation</h2>
+<pre><code class="lang-sh">npm install jengine-cookie --save
+</code></pre>
+<p>or</p>
+<pre><code class="lang-sh">bower install jengine-cookie --save
+</code></pre>
+<h2 id="quick-usage">Quick Usage</h2>
+<pre><code class="lang-js">$cookie.set(cookieName, cookieValue)
+$cookie.set(&#39;foo&#39;, &#39;var&#39;)
 
+$cookie.get(cookieName);
+$cookie.get(&#39;foo&#39;)
+// returns &#39;bar&#39;
 
-<!--<div class="text-center">
-  <a href="http://js.org" target="_blank" title="JS.ORG | JavaScript Community">
-  <img src="http://logo.js.org/dark_horz.png" width="102" alt="JS.ORG Logo"/></a>
-</div>-->
+$cookie.remove(cookieName);
+$cookie.remove(&#39;foo&#39;);
+</code></pre>
+<h2 id="full-usage">Full Usage</h2>
+<pre><code class="lang-js">$cookie.set(cookieName, cookieValue, &#39;Fri, 31 Dec 9999 23:59:59 GMT&#39; {UTC Format}, path, domain, secure)
+</code></pre>
 </div>
+						
+						<br/>
+						<hr/>
+						<div class="text-center">
+							<a class="btn btn-link" href="https://github.com/jstools/cookie" target="_blank">
+								<span>code in </span>
+								<span class="icon icon-github"></span>
+								<span>Github</span>
+							</a>
+						</div>
 						
 					</article>
 
@@ -123,10 +143,10 @@
 			</div>
 		</footer>
 
-		
-		<script src="https://jstools.github.io/public/assets/fastclick.min.js"></script>
-		<script src="https://jstools.github.io/public/assets/jEngine.min.js"></script>
+		<script src="//localhost:54321/livereload.js"></script>
+		<script src="//localhost:8080/public/assets/fastclick.min.js"></script>
+		<script src="//localhost:8080/public/assets/jEngine.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
-		<script src="https://jstools.github.io/public/assets/init-site.js"></script>
+		<script src="//localhost:8080/public/assets/init-site.js"></script>
 	</body>
 </html>

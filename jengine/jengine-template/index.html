@@ -3,11 +3,11 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>jsTools</title>
-		<link rel="shortcut icon" type="image/x-icon" href="https://jstools.github.io/public/assets/images/jstools.png" />
+		<link rel="shortcut icon" type="image/x-icon" href="//localhost:8080/public/assets/images/jstools.png" />
 
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<link href="https://jstools.github.io/public/jstools.css" rel="stylesheet">
+		<link href="//localhost:8080/public/jstools.css" rel="stylesheet">
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
 
 	</head>
@@ -82,7 +82,7 @@
 										<a href="/jengine/utils/">utils</a>
 									</li>
                   
-									<li class="">
+									<li class="active">
 										<a href="/jengine/template/">template</a>
 									</li>
                   
@@ -92,19 +92,50 @@
 					</nav>
 
 					<article class="article">
-						<div class="readme markdown-body">
-<h1 id="jstools">jsTools</h1>
-<blockquote>
-<p>jsTools aims to be a stable collection of js tools for browser and web build (nodejs)</p>
-</blockquote>
-<p><a href="page/jengine/">jEngine</a></p>
+						<div class="readme markdown-body"><h1 id="jengine-template-wercker-status-https-app-wercker-com-status-514973e1d34c9367cf40985a577c9c2a-s-wercker-status-https-app-wercker-com-project-bykey-514973e1d34c9367cf40985a577c9c2a-">jEngine: $template <a href="https://app.wercker.com/project/bykey/514973e1d34c9367cf40985a577c9c2a"><img src="https://app.wercker.com/status/514973e1d34c9367cf40985a577c9c2a/s" alt="wercker status" title="wercker status"></a></h1>
+<p><a href="http://badge.fury.io/bo/jstools-template"><img src="https://badge.fury.io/bo/jstools-template.svg" alt="Bower version"></a>
+<a href="http://badge.fury.io/js/jstools-template"><img src="https://badge.fury.io/js/jstools-template.svg" alt="npm version"></a>
+<a href="https://travis-ci.org/jstools/template"><img src="https://travis-ci.org/jstools/template.svg?branch=master" alt="Build Status"></a></p>
+<h2 id="installation">Installation</h2>
+<pre><code class="lang-sh">npm install jstools-template --save
+</code></pre>
+<p>  or</p>
+<pre><code class="lang-sh">bower install jstools-template --save
+</code></pre>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-js">var data = {
+  foo: &#39;bar&#39;,
+  crash: {
+    test: &#39;dummy&#39;
+  },
+  list: [&#39;foo&#39;, &#39;bar&#39;, &#39;foobar&#39;],
+  map: {
+    hi: &#39;all&#39;,
+    bye: &#39;nobody&#39;
+  },
+  template: &#39;sample&#39;,
+  label: {
+    cancel: &#39;cancel&#39;
+  }
+};
 
+$template.compile(&#39;$if{ foo === &quot;bar&quot; }gogogo{:}whoops{/}&#39;)(data)
+// returns &#39;gogogo&#39;
 
-<!--<div class="text-center">
-  <a href="http://js.org" target="_blank" title="JS.ORG | JavaScript Community">
-  <img src="http://logo.js.org/dark_horz.png" width="102" alt="JS.ORG Logo"/></a>
-</div>-->
+$template.compile(&#39;$each{ item, key in map }[${foo}:${key}:${item}]{/}&#39;)(data);
+// returns &#39;[bar:hi:all][bar:bye:nobody]&#39;
+</code></pre>
 </div>
+						
+						<br/>
+						<hr/>
+						<div class="text-center">
+							<a class="btn btn-link" href="https://github.com/jstools/template" target="_blank">
+								<span>code in </span>
+								<span class="icon icon-github"></span>
+								<span>Github</span>
+							</a>
+						</div>
 						
 					</article>
 
@@ -123,10 +154,10 @@
 			</div>
 		</footer>
 
-		
-		<script src="https://jstools.github.io/public/assets/fastclick.min.js"></script>
-		<script src="https://jstools.github.io/public/assets/jEngine.min.js"></script>
+		<script src="//localhost:54321/livereload.js"></script>
+		<script src="//localhost:8080/public/assets/fastclick.min.js"></script>
+		<script src="//localhost:8080/public/assets/jEngine.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
-		<script src="https://jstools.github.io/public/assets/init-site.js"></script>
+		<script src="//localhost:8080/public/assets/init-site.js"></script>
 	</body>
 </html>

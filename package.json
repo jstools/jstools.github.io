@@ -4,6 +4,7 @@
   "description": "jsTools public site",
   "main": "index.js",
   "scripts": {
+    "postinstall": "bower install",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prestart": "npm install && bower install",
     "start": "grunt dev"
@@ -35,8 +36,8 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-fileserver": "^0.1.30",
     "grunt-notify": "^0.4.1",
-    "jstools-scope": "^0.0.9",
-    "jstools-template": "^0.1.0",
+    "jengine-scope": "^0.0.10",
+    "jengine-template": "^0.1.2",
     "load-grunt-tasks": "^3.1.0",
     "marked": "jgermade/marked#master",
     "package-manager": "0.0.11",

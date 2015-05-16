@@ -3,11 +3,11 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>jsTools</title>
-		<link rel="shortcut icon" type="image/x-icon" href="https://jstools.github.io/public/assets/images/jstools.png" />
+		<link rel="shortcut icon" type="image/x-icon" href="//localhost:8080/public/assets/images/jstools.png" />
 
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<link href="https://jstools.github.io/public/jstools.css" rel="stylesheet">
+		<link href="//localhost:8080/public/jstools.css" rel="stylesheet">
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
 
 	</head>
@@ -43,47 +43,47 @@
 					<nav id="libs-nav">
 						<ul>
 							<li>
-								<a class="" href="/page/jengine/">jEngine</a>
+								<a class="" href="/jengine/">jEngine</a>
 								<ul>
                   
 									<li class="">
-										<a href="/page/jengine/jstools-fn/">fn</a>
+										<a href="/jengine/fn/">fn</a>
 									</li>
                   
 									<li class="">
-										<a href="/page/jengine/jstools-jqlite/">jqlite</a>
+										<a href="/jengine/jqlite/">jqlite</a>
 									</li>
                   
 									<li class="">
-										<a href="/page/jengine/jq-plugin/">jq-plugin</a>
+										<a href="/jengine/jq-plugin/">jq-plugin</a>
 									</li>
                   
 									<li class="">
-										<a href="/page/jengine/jstools-events/">events</a>
+										<a href="/jengine/events/">events</a>
 									</li>
                   
 									<li class="">
-										<a href="/page/jengine/jstools-promise/">promise</a>
+										<a href="/jengine/promise/">promise</a>
 									</li>
                   
 									<li class="">
-										<a href="/page/jengine/jstools-cookie/">cookie</a>
+										<a href="/jengine/cookie/">cookie</a>
+									</li>
+                  
+									<li class="">
+										<a href="/jengine/http/">http</a>
 									</li>
                   
 									<li class="active">
-										<a href="/page/jengine/jstools-http/">http</a>
+										<a href="/jengine/scope/">scope</a>
 									</li>
                   
 									<li class="">
-										<a href="/page/jengine/jstools-scope/">scope</a>
+										<a href="/jengine/utils/">utils</a>
 									</li>
                   
 									<li class="">
-										<a href="/page/jengine/jstools-utils/">utils</a>
-									</li>
-                  
-									<li class="">
-										<a href="/page/jengine/jstools-template/">template</a>
+										<a href="/jengine/template/">template</a>
 									</li>
                   
 								</ul>
@@ -92,43 +92,31 @@
 					</nav>
 
 					<article class="article">
-						<div class="readme markdown-body"><h1 id="jengine-http">jEngine: $http</h1>
-<p><a href="http://badge.fury.io/bo/jstools-http"><img src="https://badge.fury.io/bo/jstools-http.svg" alt="Bower version"></a>
-<a href="http://badge.fury.io/js/jstools-http"><img src="https://badge.fury.io/js/jstools-http.svg" alt="npm version"></a></p>
+						<div class="readme markdown-body"><h1 id="jengine-scope-wercker-status-https-app-wercker-com-status-5171150383b23595c99e25435ccb0135-s-wercker-status-https-app-wercker-com-project-bykey-5171150383b23595c99e25435ccb0135-">jEngine: Scope <a href="https://app.wercker.com/project/bykey/5171150383b23595c99e25435ccb0135"><img src="https://app.wercker.com/status/5171150383b23595c99e25435ccb0135/s" alt="wercker status" title="wercker status"></a></h1>
+<p><a href="http://badge.fury.io/bo/jengine-scope"><img src="https://badge.fury.io/bo/jengine-scope.svg" alt="Bower version"></a>
+<a href="http://badge.fury.io/js/jengine-scope"><img src="https://badge.fury.io/js/jengine-scope.svg" alt="npm version"></a>
+<a href="https://travis-ci.org/jstools/scope"><img src="https://travis-ci.org/jstools/scope.svg?branch=master" alt="Build Status"></a></p>
 <h2 id="installation">Installation</h2>
-<pre><code class="lang-sh">npm install jstools-http --save
+<pre><code class="lang-sh">npm install jengine-scope --save
 </code></pre>
-<p>or</p>
-<pre><code class="lang-sh">bower install jstools-http --save
+<p>  or</p>
+<pre><code class="lang-sh">bower install jengine-scope --save
 </code></pre>
 <h2 id="usage">Usage</h2>
-<pre><code class="lang-js">$http.get(&#39;/items.json&#39;);
+<pre><code class="lang-js">var s1 = new Scope({ foo: &#39;bar&#39;, overlap: &#39;v1&#39;, obj: { value: &#39;pristine&#39; } });
+var s2 = s1.$$new({ overlap: &#39;v2&#39; });
 
-$http.post(&#39;/items.json&#39;, {
-    prop1: &#39;value1&#39;
-});
+var s3 = s2.$$new();
 
-$http.put(&#39;/items.json&#39;, {
-    prop1: &#39;another value&#39;
-});
-
-$http.delete(&#39;/items.json&#39;);
-
-$http.patch(&#39;/items.json&#39;, {
-    op: &#39;add&#39;, path: &#39;/prop1&#39;, value: &#39;one more value&#39;
-});
-
-$http.patch(&#39;/items.json&#39;)
-    .remove(&#39;/prop1&#39;)
-    .add(&#39;/list/-&#39;, { subprop: &#39;sample value&#39; })
-    .submit();
+s3.foo = &#39;changed&#39;;
+s3.obj.value = &#39;dirty&#39;;
 </code></pre>
 </div>
 						
 						<br/>
 						<hr/>
 						<div class="text-center">
-							<a class="btn btn-link" href="https://github.com/jstools/http" target="_blank">
+							<a class="btn btn-link" href="https://github.com/jstools/scope" target="_blank">
 								<span>code in </span>
 								<span class="icon icon-github"></span>
 								<span>Github</span>
@@ -152,10 +140,10 @@ $http.patch(&#39;/items.json&#39;)
 			</div>
 		</footer>
 
-		
-		<script src="https://jstools.github.io/public/assets/fastclick.min.js"></script>
-		<script src="https://jstools.github.io/public/assets/jEngine.min.js"></script>
+		<script src="//localhost:54321/livereload.js"></script>
+		<script src="//localhost:8080/public/assets/fastclick.min.js"></script>
+		<script src="//localhost:8080/public/assets/jEngine.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
-		<script src="https://jstools.github.io/public/assets/init-site.js"></script>
+		<script src="//localhost:8080/public/assets/init-site.js"></script>
 	</body>
 </html>

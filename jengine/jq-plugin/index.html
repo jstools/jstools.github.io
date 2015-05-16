@@ -43,47 +43,47 @@
 					<nav id="libs-nav">
 						<ul>
 							<li>
-								<a class="" href="/page/jengine/">jEngine</a>
+								<a class="" href="/jengine/">jEngine</a>
 								<ul>
                   
 									<li class="">
-										<a href="/page/jengine/jstools-fn/">fn</a>
+										<a href="/jengine/fn/">fn</a>
 									</li>
                   
 									<li class="">
-										<a href="/page/jengine/jstools-jqlite/">jqlite</a>
-									</li>
-                  
-									<li class="">
-										<a href="/page/jengine/jq-plugin/">jq-plugin</a>
-									</li>
-                  
-									<li class="">
-										<a href="/page/jengine/jstools-events/">events</a>
+										<a href="/jengine/jqlite/">jqlite</a>
 									</li>
                   
 									<li class="active">
-										<a href="/page/jengine/jstools-promise/">promise</a>
+										<a href="/jengine/jq-plugin/">jq-plugin</a>
 									</li>
                   
 									<li class="">
-										<a href="/page/jengine/jstools-cookie/">cookie</a>
+										<a href="/jengine/events/">events</a>
 									</li>
                   
 									<li class="">
-										<a href="/page/jengine/jstools-http/">http</a>
+										<a href="/jengine/promise/">promise</a>
 									</li>
                   
 									<li class="">
-										<a href="/page/jengine/jstools-scope/">scope</a>
+										<a href="/jengine/cookie/">cookie</a>
 									</li>
                   
 									<li class="">
-										<a href="/page/jengine/jstools-utils/">utils</a>
+										<a href="/jengine/http/">http</a>
 									</li>
                   
 									<li class="">
-										<a href="/page/jengine/jstools-template/">template</a>
+										<a href="/jengine/scope/">scope</a>
+									</li>
+                  
+									<li class="">
+										<a href="/jengine/utils/">utils</a>
+									</li>
+                  
+									<li class="">
+										<a href="/jengine/template/">template</a>
 									</li>
                   
 								</ul>
@@ -92,61 +92,34 @@
 					</nav>
 
 					<article class="article">
-						<div class="readme markdown-body"><h1 id="jengine-promise-wercker-status-https-app-wercker-com-status-ea1a628b907d1613503a54e03df4cadd-s-wercker-status-https-app-wercker-com-project-bykey-ea1a628b907d1613503a54e03df4cadd-">jEngine: $promise <a href="https://app.wercker.com/project/bykey/ea1a628b907d1613503a54e03df4cadd"><img src="https://app.wercker.com/status/ea1a628b907d1613503a54e03df4cadd/s" alt="wercker status" title="wercker status"></a></h1>
-<p><a href="http://badge.fury.io/bo/jstools-promise"><img src="https://badge.fury.io/bo/jstools-promise.svg" alt="Bower version"></a>
-<a href="http://badge.fury.io/js/jstools-promise"><img src="https://badge.fury.io/js/jstools-promise.svg" alt="npm version"></a>
-<a href="https://travis-ci.org/jstools/promise"><img src="https://travis-ci.org/jstools/promise.svg?branch=master" alt="Build Status"></a></p>
+						<div class="readme markdown-body"><h1 id="jengine-jq-plugin">jEngine: jq-plugin</h1>
+<p><a href="http://badge.fury.io/bo/jq-plugin"><img src="https://badge.fury.io/bo/jq-plugin.svg" alt="Bower version"></a>
+<a href="http://badge.fury.io/js/jq-plugin"><img src="https://badge.fury.io/js/jq-plugin.svg" alt="npm version"></a>
+<a href="https://travis-ci.org/jstools/jq-plugin"><img src="https://travis-ci.org/jstools/jq-plugin.svg?branch=master" alt="Build Status"></a></p>
 <h2 id="installation">Installation</h2>
-<pre><code class="lang-sh">npm install jstools-promise --save
+<pre><code class="lang-sh">npm install jq-plugin --save
 </code></pre>
 <p>  or</p>
-<pre><code class="lang-sh">bower install jstools-promise --save
+<pre><code class="lang-sh">bower install jq-plugin --save
 </code></pre>
 <h2 id="usage">Usage</h2>
-<pre><code class="lang-js">$promise(function (resolve, reject) {
-        resolve(&#39;gogogo!&#39;);
-    })
-
-    .finally(function (result) {
-        console.log(&#39;checkpoint 4&#39;, result);
-    }, function (reason) {
-        console.log(&#39;checkpoint 4.1&#39;, reason);
-    })
-
-    .then(function (result) {
-        console.log(&#39;checkpoint 1&#39;, result);
-        throw &#39;whoops!&#39;;
-    })
-
-    .then(function (result) {
-        console.log(&#39;checkpoint 2&#39;, result);
-    },function (result) {
-        console.log(&#39;checkpoint 2.1&#39;, result);
-        return qPromise(function (resolve, reject) {
-            setTimeout(function () { resolve(&#39;all right!&#39;); }, 400);
-        });
-    })
-
-    .then(function (result) {
-        console.log(&#39;checkpoint 3&#39;, result);
-    }, function (reason) {
-        console.log(&#39;checkpoint 3.1&#39;, reason);
-    })
-;
+<pre><code class="lang-html">&lt;button&gt;Hola&lt;/button&gt;
 </code></pre>
-<p>output:</p>
-<pre><code class="lang-sh">checkpoint 1 gogogo!
-checkpoint 2.1 whoops!
-# elapsed 400ms
-checkpoint 3 all right!
-checkpoint 4 all right!
+<pre><code class="lang-js">// $.plugin(selector, handler, isCollection?)
+$.plugin(&#39;button&#39;, function () {
+  var jBtn = $(this);
+
+  jBtn.click(function () {
+    alert(jBtn.text());
+  });
+});
 </code></pre>
 </div>
 						
 						<br/>
 						<hr/>
 						<div class="text-center">
-							<a class="btn btn-link" href="https://github.com/jstools/promise" target="_blank">
+							<a class="btn btn-link" href="https://github.com/jstools/jq-plugin" target="_blank">
 								<span>code in </span>
 								<span class="icon icon-github"></span>
 								<span>Github</span>

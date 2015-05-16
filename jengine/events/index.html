@@ -58,7 +58,7 @@
 										<a href="/jengine/jq-plugin/">jq-plugin</a>
 									</li>
                   
-									<li class="">
+									<li class="active">
 										<a href="/jengine/events/">events</a>
 									</li>
                   
@@ -92,19 +92,51 @@
 					</nav>
 
 					<article class="article">
-						<div class="readme markdown-body">
-<h1 id="jstools">jsTools</h1>
-<blockquote>
-<p>jsTools aims to be a stable collection of js tools for browser and web build (nodejs)</p>
-</blockquote>
-<p><a href="page/jengine/">jEngine</a></p>
+						<div class="readme markdown-body"><h1 id="jengine-events-wercker-status-https-app-wercker-com-status-54d5da14c71194ac8b5a8b1828a61ce3-s-wercker-status-https-app-wercker-com-project-bykey-54d5da14c71194ac8b5a8b1828a61ce3-">jEngine: Events <a href="https://app.wercker.com/project/bykey/54d5da14c71194ac8b5a8b1828a61ce3"><img src="https://app.wercker.com/status/54d5da14c71194ac8b5a8b1828a61ce3/s" alt="wercker status" title="wercker status"></a></h1>
+<p><a href="http://badge.fury.io/bo/jengine-events"><img src="https://badge.fury.io/bo/jengine-events.svg" alt="Bower version"></a>
+<a href="http://badge.fury.io/js/jengine-events"><img src="https://badge.fury.io/js/jengine-events.svg" alt="npm version"></a>
+<a href="https://travis-ci.org/jstools/events"><img src="https://travis-ci.org/jstools/events.svg?branch=master" alt="Build Status"></a></p>
+<h2 id="installation">Installation</h2>
+<pre><code class="lang-sh">npm install jengine-events --save
+</code></pre>
+<p>or</p>
+<pre><code class="lang-sh">bower install jengine-events --save
+</code></pre>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-js">var obj = new Events();
 
+obj.on(&#39;foo&#39;, function () {
+  flag = true;
+});
 
-<!--<div class="text-center">
-  <a href="http://js.org" target="_blank" title="JS.ORG | JavaScript Community">
-  <img src="http://logo.js.org/dark_horz.png" width="102" alt="JS.ORG Logo"/></a>
-</div>-->
+obj.trigger(&#39;foo&#39;);
+</code></pre>
+<h2 id="angularjs-module">AngularJS Module</h2>
+<pre><code class="lang-js">angular.module(&#39;myApp&#39;, [&#39;jstools.events&#39;])
+
+  .controller(&#39;AppCtrl&#39;, [&#39;$scope&#39;, &#39;Events&#39;, function ($scope, Events) {
+
+    var obj = new Events();
+
+    obj.$$on(&#39;foo&#39;, function () {
+      flag = true;
+    });
+
+    obj.$$trigger(&#39;foo&#39;);
+
+  }]);
+</code></pre>
 </div>
+						
+						<br/>
+						<hr/>
+						<div class="text-center">
+							<a class="btn btn-link" href="https://github.com/jstools/events" target="_blank">
+								<span>code in </span>
+								<span class="icon icon-github"></span>
+								<span>Github</span>
+							</a>
+						</div>
 						
 					</article>
 

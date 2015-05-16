@@ -43,11 +43,11 @@
 					<nav id="libs-nav">
 						<ul>
 							<li>
-								<a class="$if{dependence === 'jengine'}active{/}" href="/page/jengine/">jEngine</a>
+								<a class="$if{dependence === 'jengine'}active{/}" href="/jengine/">jEngine</a>
 								<ul>
-                  $each{jstool in jstools}
+                  $each{ jstool in jengineTools }
 									<li class="$if{dependence === jstool}active{/}">
-										<a href="/page/jengine/${jstool}/">${jstoolLabel(jstool)}</a>
+										<a href="/jengine/${ jengineNoPrefix(jstool) }/">${ jengineNoPrefix(jstool) }</a>
 									</li>
                   {/}
 								</ul>

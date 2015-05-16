@@ -14,16 +14,16 @@
     "tests"
   ],
   "devDependencies": {
-    "jstools-fn": "*",
-    "jstools-jqlite": "*",
+    "jengine-fn": "*",
+    "jengine-jqlite": "*",
     "jq-plugin": "*",
-    "jstools-events": "*",
-    "jstools-promise": "*",
-    "jstools-cookie": "*",
-    "jstools-http": "*",
-    "jstools-scope": "*",
-    "jstools-utils": "*",
-    "jstools-template": "*",
+    "jengine-events": "*",
+    "jengine-promise": "*",
+    "jengine-cookie": "*",
+    "jengine-http": "*",
+    "jengine-scope": "*",
+    "jengine-utils": "*",
+    "jengine-template": "*",
     "jengine": "*"
   },
   "dependencies": {

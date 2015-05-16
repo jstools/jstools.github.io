@@ -43,47 +43,47 @@
 					<nav id="libs-nav">
 						<ul>
 							<li>
-								<a class="" href="/page/jengine/">jEngine</a>
+								<a class="" href="/jengine/">jEngine</a>
 								<ul>
                   
 									<li class="">
-										<a href="/page/jengine/jstools-fn/">fn</a>
+										<a href="/jengine/fn/">fn</a>
 									</li>
                   
 									<li class="">
-										<a href="/page/jengine/jstools-jqlite/">jqlite</a>
+										<a href="/jengine/jqlite/">jqlite</a>
 									</li>
                   
 									<li class="">
-										<a href="/page/jengine/jq-plugin/">jq-plugin</a>
+										<a href="/jengine/jq-plugin/">jq-plugin</a>
 									</li>
                   
 									<li class="">
-										<a href="/page/jengine/jstools-events/">events</a>
+										<a href="/jengine/events/">events</a>
 									</li>
                   
 									<li class="">
-										<a href="/page/jengine/jstools-promise/">promise</a>
+										<a href="/jengine/promise/">promise</a>
 									</li>
                   
 									<li class="">
-										<a href="/page/jengine/jstools-cookie/">cookie</a>
+										<a href="/jengine/cookie/">cookie</a>
 									</li>
                   
 									<li class="">
-										<a href="/page/jengine/jstools-http/">http</a>
-									</li>
-                  
-									<li class="">
-										<a href="/page/jengine/jstools-scope/">scope</a>
+										<a href="/jengine/http/">http</a>
 									</li>
                   
 									<li class="active">
-										<a href="/page/jengine/jstools-utils/">utils</a>
+										<a href="/jengine/scope/">scope</a>
 									</li>
                   
 									<li class="">
-										<a href="/page/jengine/jstools-template/">template</a>
+										<a href="/jengine/utils/">utils</a>
+									</li>
+                  
+									<li class="">
+										<a href="/jengine/template/">template</a>
 									</li>
                   
 								</ul>
@@ -92,61 +92,31 @@
 					</nav>
 
 					<article class="article">
-						<div class="readme markdown-body"><h1 id="jstools-utils-wercker-status-https-app-wercker-com-status-3f20841faade376a5a8cc5aaf1051230-s-wercker-status-https-app-wercker-com-project-bykey-3f20841faade376a5a8cc5aaf1051230-">jsTools: $utils <a href="https://app.wercker.com/project/bykey/3f20841faade376a5a8cc5aaf1051230"><img src="https://app.wercker.com/status/3f20841faade376a5a8cc5aaf1051230/s" alt="wercker status" title="wercker status"></a></h1>
-<p><a href="http://badge.fury.io/bo/jstools-utils"><img src="https://badge.fury.io/bo/jstools-utils.svg" alt="Bower version"></a>
-<a href="http://badge.fury.io/js/jstools-utils"><img src="https://badge.fury.io/js/jstools-utils.svg" alt="npm version"></a>
-<a href="https://travis-ci.org/jstools/utils"><img src="https://travis-ci.org/jstools/utils.svg?branch=master" alt="Build Status"></a></p>
+						<div class="readme markdown-body"><h1 id="jengine-scope-wercker-status-https-app-wercker-com-status-5171150383b23595c99e25435ccb0135-s-wercker-status-https-app-wercker-com-project-bykey-5171150383b23595c99e25435ccb0135-">jEngine: Scope <a href="https://app.wercker.com/project/bykey/5171150383b23595c99e25435ccb0135"><img src="https://app.wercker.com/status/5171150383b23595c99e25435ccb0135/s" alt="wercker status" title="wercker status"></a></h1>
+<p><a href="http://badge.fury.io/bo/jengine-scope"><img src="https://badge.fury.io/bo/jengine-scope.svg" alt="Bower version"></a>
+<a href="http://badge.fury.io/js/jengine-scope"><img src="https://badge.fury.io/js/jengine-scope.svg" alt="npm version"></a>
+<a href="https://travis-ci.org/jstools/scope"><img src="https://travis-ci.org/jstools/scope.svg?branch=master" alt="Build Status"></a></p>
 <h2 id="installation">Installation</h2>
-<pre><code class="lang-sh">npm install jstools-utils --save
+<pre><code class="lang-sh">npm install jengine-scope --save
 </code></pre>
 <p>  or</p>
-<pre><code class="lang-sh">bower install jstools-utils --save
+<pre><code class="lang-sh">bower install jengine-scope --save
 </code></pre>
 <h2 id="usage">Usage</h2>
-<p>Underscore object &#39;_&#39; with useful functions</p>
-<pre><code class="lang-js">// comparators
-  _.isFunction(object)
-  _.isString(object)
-  _.isNumber(object)
-  _.isArray(object)
-  _.isDate(object)
-  _.isRegExp(object)
-  _.isObject(object)
+<pre><code class="lang-js">var s1 = new Scope({ foo: &#39;bar&#39;, overlap: &#39;v1&#39;, obj: { value: &#39;pristine&#39; } });
+var s2 = s1.$$new({ overlap: &#39;v2&#39; });
 
-// key handling
-  _.key(key, value)
-  _.keys(object)  // alias of Object.keys
+var s3 = s2.$$new();
 
-// object extend and copy
-  _.extend(dest, obj1, obj2)
-  _.merge(dest, obj1, obj2)
-  _.copy(obj)
-
-// object matches
-  _.matchAll(obj, filter)
-  _.matchAny(obj, filter)
-
-// list filter
-  _.find(list, filters) // returns first match in a list
-  _.filter(list, filters)
-
-// path handling
-  _.joinPath(path1, path2, path3)
-
-  _.each(list or object, iterator)
-  _.indexOf(list, value or iterator)
-  _.remove(list, value or iterator)
-
-// pipe and chainig
-  _.pipe()
-  _.chain()
+s3.foo = &#39;changed&#39;;
+s3.obj.value = &#39;dirty&#39;;
 </code></pre>
 </div>
 						
 						<br/>
 						<hr/>
 						<div class="text-center">
-							<a class="btn btn-link" href="https://github.com/jstools/utils" target="_blank">
+							<a class="btn btn-link" href="https://github.com/jstools/scope" target="_blank">
 								<span>code in </span>
 								<span class="icon icon-github"></span>
 								<span>Github</span>

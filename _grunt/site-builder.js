@@ -1,6 +1,6 @@
 var grunt = require('grunt'),
-    compile = require('jstools-template').compile,
-    Scope = require('jstools-scope'),
+    compile = require('jengine-template').compile,
+    Scope = require('jengine-scope'),
     UglifyJS = require("uglify-js"),
 
     joinPath = require('path').join,
@@ -27,18 +27,20 @@ function template (path) {
 template.cache = {};
 template.notFound = compile('[not found]');
 
+function jengineNoPrefix (name) {
+  return name.replace(/^jengine-/,'');
+}
+
 var env = new Scope({
   href: function () {
     return 'http://example.com';
   },
   pkg: grunt.file.readJSON('package.json'),
   bower: grunt.file.readJSON('bower.json'),
-  jstoolLabel: function (name) {
-    return name.replace(/^jstools-/,'');
-  }
+  jengineNoPrefix: jengineNoPrefix
 });
 env.host = env.pkg.homepage;
-env.jstools = Object.keys(env.bower.devDependencies).filter(function (value) {
+env.jengineTools = Object.keys(env.bower.devDependencies).filter(function (value) {
   return value !== 'jengine';
 });
 
@@ -63,8 +65,8 @@ module.exports = function (options) {
 
   bowerDependencies.each(['README.md', 'package.json'], function (dependence, readme, pkg) {
     var pagePath = ( dependence === 'jengine' ) ?
-        joinPath( 'page/jengine', 'index.html' ) :
-        joinPath( 'page/jengine', dependence, 'index.html' );
+        joinPath( 'jengine', 'index.html' ) :
+        joinPath( 'jengine', jengineNoPrefix(dependence), 'index.html' );
 
     grunt.file.write(
       pagePath,
