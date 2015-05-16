@@ -92,61 +92,72 @@
 					</nav>
 
 					<article class="article">
-						<div class="readme markdown-body"><h1 id="jstools-utils-wercker-status-https-app-wercker-com-status-3f20841faade376a5a8cc5aaf1051230-s-wercker-status-https-app-wercker-com-project-bykey-3f20841faade376a5a8cc5aaf1051230-">jsTools: $utils <a href="https://app.wercker.com/project/bykey/3f20841faade376a5a8cc5aaf1051230"><img src="https://app.wercker.com/status/3f20841faade376a5a8cc5aaf1051230/s" alt="wercker status" title="wercker status"></a></h1>
-<p><a href="http://badge.fury.io/bo/jengine-utils"><img src="https://badge.fury.io/bo/jengine-utils.svg" alt="Bower version"></a>
-<a href="http://badge.fury.io/js/jengine-utils"><img src="https://badge.fury.io/js/jengine-utils.svg" alt="npm version"></a>
-<a href="https://travis-ci.org/jstools/utils"><img src="https://travis-ci.org/jstools/utils.svg?branch=master" alt="Build Status"></a></p>
+						<div class="readme markdown-body"><h1 id="jengine-jqlite-wercker-status-https-app-wercker-com-status-f436d6c59cd7ef60ac2aa2ff49ed8f7b-s-wercker-status-https-app-wercker-com-project-bykey-f436d6c59cd7ef60ac2aa2ff49ed8f7b-">jEngine: jqlite <a href="https://app.wercker.com/project/bykey/f436d6c59cd7ef60ac2aa2ff49ed8f7b"><img src="https://app.wercker.com/status/f436d6c59cd7ef60ac2aa2ff49ed8f7b/s" alt="wercker status" title="wercker status"></a></h1>
+<p><a href="http://badge.fury.io/js/jqlite"><img src="https://badge.fury.io/js/jqlite.svg" alt="npm version"></a>
+<a href="http://badge.fury.io/bo/jstools-jqlite"><img src="https://badge.fury.io/bo/jstools-jqlite.svg" alt="Bower version"></a>
+<a href="https://travis-ci.org/jstools/jqlite"><img src="https://travis-ci.org/jstools/jqlite.svg?branch=master" alt="Build Status"></a></p>
+<blockquote>
+<p>Tiny JavaScript DOM query library</p>
+</blockquote>
 <h2 id="installation">Installation</h2>
-<pre><code class="lang-sh">npm install jengine-utils --save
+<pre><code class="lang-sh">npm install jqlite --save
 </code></pre>
 <p>  or</p>
-<pre><code class="lang-sh">bower install jengine-utils --save
+<pre><code class="lang-sh">bower install jengine-jqlite --save
 </code></pre>
-<h2 id="usage">Usage</h2>
-<p>Underscore object &#39;_&#39; with useful functions</p>
-<pre><code class="lang-js">// comparators
-  _.isFunction(object)
-  _.isString(object)
-  _.isNumber(object)
-  _.isArray(object)
-  _.isDate(object)
-  _.isRegExp(object)
-  _.isObject(object)
-
-// key handling
-  _.key(key, value)
-  _.keys(object)  // alias of Object.keys
-
-// object extend and copy
-  _.extend(dest, obj1, obj2)
-  _.merge(dest, obj1, obj2)
-  _.copy(obj)
-
-// object matches
-  _.matchAll(obj, filter)
-  _.matchAny(obj, filter)
-
-// list filter
-  _.find(list, filters) // returns first match in a list
-  _.filter(list, filters)
-
-// path handling
-  _.joinPath(path1, path2, path3)
-
-  _.each(list or object, iterator)
-  _.indexOf(list, value or iterator)
-  _.remove(list, value or iterator)
-
-// pipe and chainig
-  _.pipe()
-  _.chain()
-</code></pre>
+<h2 id="methods">Methods</h2>
+<blockquote>
+<p>jQuery Methods provided by jn-jqlite (jEngine jqlite)</p>
+</blockquote>
+<ul>
+<li>[x] <a href="http://api.jquery.com/get/"><code>get()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/eq/"><code>eq()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/addClass/"><code>addClass()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/after/"><code>after()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/append/"><code>append()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/attr/"><code>attr()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/children/"><code>children()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/closest/"><code>closest()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/clone/"><code>clone()</code></a> - clone events not yet supported</li>
+<li>[x] <a href="http://api.jquery.com/contents/"><code>contents()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/css/"><code>css()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/data/"><code>data()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/detach/"><code>detach()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/empty/"><code>empty()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/find/"><code>find()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/hasClass/"><code>hasClass()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/html/"><code>html()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/next/"><code>next()</code></a> - Does not support selectors</li>
+<li>[x] <a href="http://api.jquery.com/on/"><code>on()</code></a> - Does not support namespaces, selectors or eventData</li>
+<li>[x] <a href="http://api.jquery.com/off/"><code>off()</code></a> - Does not support namespaces or selectors</li>
+<li>[x] <a href="http://api.jquery.com/one/"><code>one()</code></a> - Does not support namespaces or selectors</li>
+<li>[x] <a href="http://api.jquery.com/parent/"><code>parent()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/prepend/"><code>prepend()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/prop/"><code>prop()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/ready/"><code>ready()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/remove/"><code>remove()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/removeAttr/"><code>removeAttr()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/removeClass/"><code>removeClass()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/removeData/"><code>removeData()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/replaceWith/"><code>replaceWith()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/text/"><code>text()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/toggleClass/"><code>toggleClass()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/trigger/"><code>trigger()</code></a> - Does not support selectors</li>
+<li>[x] <a href="http://api.jquery.com/val/"><code>val()</code></a></li>
+<li><p>[x] <a href="http://api.jquery.com/wrap/"><code>wrap()</code></a></p>
+</li>
+<li><p>[x] <a href="http://api.jquery.com/click/"><code>click()</code></a></p>
+</li>
+<li>[x] <a href="http://api.jquery.com/focus/"><code>focus()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/blur/"><code>blur()</code></a></li>
+<li>[x] <a href="http://api.jquery.com/submit/"><code>submit()</code></a></li>
+</ul>
 </div>
 						
 						<br/>
 						<hr/>
 						<div class="text-center">
-							<a class="btn btn-link" href="https://github.com/jstools/utils" target="_blank">
+							<a class="btn btn-link" href="https://github.com/jstools/jqlite" target="_blank">
 								<span>code in </span>
 								<span class="icon icon-github"></span>
 								<span>Github</span>
