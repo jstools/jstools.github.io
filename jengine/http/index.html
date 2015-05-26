@@ -102,7 +102,8 @@
 <pre><code class="lang-sh">bower install jengine-http --save
 </code></pre>
 <h2 id="usage">Usage</h2>
-<pre><code class="lang-js">$http.get(&#39;/items.json&#39;);
+<pre><code class="lang-js">$http.get(&#39;/items.json&#39;, { prop1: &#39;value1&#39; });
+// GET .../items.json?prop1=value1
 
 $http.post(&#39;/items.json&#39;, {
     prop1: &#39;value1&#39;
@@ -119,6 +120,26 @@ $http.patch(&#39;/items.json&#39;, {
 });
 
 $http.patch(&#39;/items.json&#39;)
+    .remove(&#39;/prop1&#39;)
+    .add(&#39;/list/-&#39;, { subprop: &#39;sample value&#39; })
+    .submit();
+</code></pre>
+<h2 id="cached-url">Cached URL</h2>
+<pre><code class="lang-js">var httpItems = $http(&#39;items.json&#39;);
+
+httpItems.get({ prop1: &#39;value1&#39; });
+
+httpItems.post({ prop1: &#39;value1&#39; });
+
+httpItems.put({    prop1: &#39;another value&#39; });
+
+httpItems.delete();
+
+httpItems.patch({
+    op: &#39;add&#39;, path: &#39;/prop1&#39;, value: &#39;one more value&#39;
+});
+
+httpItems.patch()
     .remove(&#39;/prop1&#39;)
     .add(&#39;/list/-&#39;, { subprop: &#39;sample value&#39; })
     .submit();
