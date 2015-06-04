@@ -13,8 +13,9 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
   	dir: {
-  		'tmp': '.tmp',
-  		'public': 'public'
+  		tmp: '.tmp',
+  		public: 'public',
+			bower: grunt.file.readJSON('.bowerrc').directory || '.bower_components'
   	},
 
     pkg: grunt.file.readJSON('package.json'),
@@ -94,9 +95,20 @@ module.exports = function(grunt) {
 		require('./_grunt/site-builder.js')();
 	});
 
-  grunt.registerTask('dev', ['clean', 'copy:assets', 'build-pages:dev', 'less', 'fileserver', 'watch']);
+	grunt.registerTask('copy-jengine', function () {
+		grunt.file.copy(
+			grunt.config.process('<%= dir.bower %>/jengine/jEngine.min.js'),
+			grunt.config.process('<%= dir.public %>/assets/jEngine.min.js'),
+			{
+				encoding: 'utf8',
+				noProcess: true
+			}
+		);
+	});
 
-  grunt.registerTask('build', ['clean', 'copy:assets', 'build-pages:dist', 'less']);
+  grunt.registerTask('dev', ['clean', 'copy-jengine', 'copy:assets', 'build-pages:dev', 'less', 'fileserver', 'watch']);
+
+  grunt.registerTask('build', ['clean', 'copy-jengine', 'copy:assets', 'build-pages:dist', 'less']);
 
   // Default task(s).
   grunt.registerTask('default', ['build']);

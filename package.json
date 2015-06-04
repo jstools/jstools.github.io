@@ -7,7 +7,9 @@
     "postinstall": "bower install",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prestart": "npm install && bower install",
-    "start": "grunt dev"
+    "start": "grunt dev",
+    "prebuild": "npm install",
+    "build": "grunt build"
   },
   "repository": {
     "type": "git",
