@@ -28,5 +28,13 @@
   },
   "dependencies": {
     "fastclick": "~1.0.6"
+  },
+  "overrides": {
+    "jengine": {
+      "main": [
+        "jEngine.min.js",
+        "jEngine.js"
+      ]
+    }
   }
 }

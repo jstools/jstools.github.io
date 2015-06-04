@@ -37,8 +37,18 @@ module.exports = function(grunt) {
 					paths: ["assets/css"]
 				},
 				files: {
-				 "<%= dir.public %>/jstools.css": "styles/index.less"
+				 "<%= dir.public %>/assets/jstools.css": "styles/index.less"
 				}
+			}
+		},
+
+		copyDependencies: {
+			libs: {
+				dest: '<%= dir.public %>/lib'
+			},
+			devLibs: {
+				dest: '<%= dir.public %>/lib',
+				src: 'devDependencies'
 			}
 		},
 
@@ -106,9 +116,9 @@ module.exports = function(grunt) {
 		);
 	});
 
-  grunt.registerTask('dev', ['clean', 'copy-jengine', 'copy:assets', 'build-pages:dev', 'less', 'fileserver', 'watch']);
+  grunt.registerTask('dev', ['clean', 'copyDependencies', 'copy:assets', 'build-pages:dev', 'less', 'fileserver', 'watch']);
 
-  grunt.registerTask('build', ['clean', 'copy-jengine', 'copy:assets', 'build-pages:dist', 'less']);
+  grunt.registerTask('build', ['clean', 'copyDependencies', 'copy:assets', 'build-pages:dist', 'less']);
 
   // Default task(s).
   grunt.registerTask('default', ['build']);
