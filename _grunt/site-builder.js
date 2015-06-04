@@ -60,8 +60,7 @@ module.exports = function (options) {
     })
   })) );
 
-  grunt.file.write('public/assets/jEngine.min.js', grunt.file.read( joinPath( bowerDependencies.dependenciesPath ,'jengine', 'jEngine.min.js' ) ) );
-  grunt.file.write('public/assets/fastclick.min.js', UglifyJS.minify( joinPath( bowerDependencies.dependenciesPath ,'fastclick', 'lib/fastclick.js' ) ).code );
+  grunt.file.write('assets/fastclick.min.js', UglifyJS.minify( joinPath( bowerDependencies.dependenciesPath ,'fastclick', 'lib/fastclick.js' ) ).code );
 
   bowerDependencies.each(['README.md', 'package.json'], function (dependence, readme, pkg) {
     var pagePath = ( dependence === 'jengine' ) ?

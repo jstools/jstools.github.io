@@ -37,17 +37,17 @@ module.exports = function(grunt) {
 					paths: ["assets/css"]
 				},
 				files: {
-				 "<%= dir.public %>/assets/jstools.css": "styles/index.less"
+				 "assets/jstools.css": "styles/index.less"
 				}
 			}
 		},
 
 		copyDependencies: {
 			libs: {
-				dest: '<%= dir.public %>/lib'
+				dest: 'lib'
 			},
 			devLibs: {
-				dest: '<%= dir.public %>/lib',
+				dest: 'lib',
 				src: 'devDependencies'
 			}
 		},
@@ -105,20 +105,9 @@ module.exports = function(grunt) {
 		require('./_grunt/site-builder.js')();
 	});
 
-	grunt.registerTask('copy-jengine', function () {
-		grunt.file.copy(
-			grunt.config.process('<%= dir.bower %>/jengine/jEngine.min.js'),
-			grunt.config.process('<%= dir.public %>/assets/jEngine.min.js'),
-			{
-				encoding: 'utf8',
-				noProcess: true
-			}
-		);
-	});
+  grunt.registerTask('dev', ['clean', 'copyDependencies', 'build-pages:dev', 'less', 'fileserver', 'watch']);
 
-  grunt.registerTask('dev', ['clean', 'copyDependencies', 'copy:assets', 'build-pages:dev', 'less', 'fileserver', 'watch']);
-
-  grunt.registerTask('build', ['clean', 'copyDependencies', 'copy:assets', 'build-pages:dist', 'less']);
+  grunt.registerTask('build', ['clean', 'copyDependencies', 'build-pages:dist', 'less']);
 
   // Default task(s).
   grunt.registerTask('default', ['build']);
