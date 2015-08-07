@@ -1941,6 +1941,9 @@ body:after {
 .autoscroll {
   overflow: autoscroll;
 }
+.is-loading {
+  opacity: 0.5;
+}
 a {
   text-decoration: none;
   color: black;

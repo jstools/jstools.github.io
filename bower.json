@@ -14,17 +14,17 @@
     "tests"
   ],
   "devDependencies": {
-    "jengine-fn": "*",
-    "jengine-jqlite": "*",
-    "jq-plugin": "*",
+    "jengine-fn": "~0.1.60",
+    "jengine-jqlite": "~0.2.10",
+    "jq-plugin": "~0.1.0",
     "jengine-events": "*",
     "jengine-promise": "*",
     "jengine-cookie": "*",
     "jengine-http": "*",
-    "jengine-scope": "*",
+    "jengine-template": "~0.1.2",
+    "jengine": "~0.2.7",
     "jengine-utils": "*",
-    "jengine-template": "*",
-    "jengine": "*"
+    "jengine-scope": "*"
   },
   "dependencies": {
     "fastclick": "~1.0.6"
